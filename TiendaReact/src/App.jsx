@@ -2,6 +2,8 @@ import './App.css'
 import Asistentes from "./componentes/Asistentes/Asistentes.jsx";
 import Perfil from "./componentes/Perfil/Perfil.jsx";
 import Layout from "./componentes/Layout/Layout.jsx";
+import ItemContainer from "./componentes/item/ItemContainer.jsx";
+import ItemList from './componentes/item/ItemList.jsx';
 
 const asistentes = [
   {nombre: 'Juan Perez', tareas: 'Frontend Developer', emoji: '💻'},
@@ -15,6 +17,9 @@ function App() {
     <Layout>
       <Perfil/>
       <Asistentes asistProp={asistentes}/>
+      <ItemContainer>
+        <ItemList/>
+      </ItemContainer>
     </Layout>
   );
 }
