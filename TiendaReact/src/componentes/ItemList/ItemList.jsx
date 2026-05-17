@@ -1,4 +1,4 @@
-import {Item} from '../Item/Item';
+import {Item} from '../../Item_/Item';
 
 function ItemList({objItems}){
     return(   
