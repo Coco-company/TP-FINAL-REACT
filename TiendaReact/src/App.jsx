@@ -1,9 +1,19 @@
 import './App.css'
+
+//* import {ItemListContainer} from './componentes/item/ItemContainer.jsx';
+//* import {contador} from './componentes/Contador/Contador';
+//* import Productos from './componentes/Productos/Productos';
+import {FormularioContainer} from './componentes/FormularioContainer/FormularioContainer';
+//* import {Routes, Route} from 'react-router-dom';
+//* import Layout from './componentes/Layout/Layout.jsx';
+
+
 import Asistentes from "./componentes/Asistentes/Asistentes.jsx";
 import Perfil from "./componentes/Perfil/Perfil.jsx";
 import Layout from "./componentes/Layout/Layout.jsx";
 import ItemContainer from "./componentes/item/ItemContainer.jsx";
 import ItemList from './componentes/item/ItemList.jsx';
+import { Routes, Route } from 'react-router-dom'
 
 const asistentes = [
   {nombre: 'Juan Perez', tareas: 'Frontend Developer', emoji: '💻'},
@@ -14,13 +24,12 @@ const asistentes = [
 function App() {
 
   return (
-    <Layout>
-      <Perfil/>
-      <Asistentes asistProp={asistentes}/>
-      <ItemContainer>
-        <ItemList/>
-      </ItemContainer>
-    </Layout>
+    <Routes>
+      <Route element={<Layout/>}>
+        <Route path='/' element={<h1>Pagina de Inicio</h1>} />
+        <Route path='/alta' element={<FormularioContainer />} />
+      </Route>
+    </Routes>
   );
 }
 
