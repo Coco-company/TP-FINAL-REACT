@@ -1,6 +1,6 @@
-import ItemList from '../item/ItemList.jsx';
+import ItemList from '../ItemList/ItemList.jsx';
 
-function ItemContainer() {  // Children = Elementos hijos. Llama a los componentes contenidos dentro del elemento HTML
+function ItemListContainer() {  // Children = Elementos hijos. Llama a los componentes contenidos dentro del elemento HTML
 
     const objItems = [
         {id: '123', nombre: 'Acelga', precio: 10000, stock: 15},
@@ -18,4 +18,4 @@ function ItemContainer() {  // Children = Elementos hijos. Llama a los component
     return <ItemList style={estilo} objItems={objItems} />;
 }
 
-export default ItemContainer;
+export default ItemListContainer;

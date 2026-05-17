@@ -11,8 +11,8 @@ import {FormularioContainer} from './componentes/FormularioContainer/FormularioC
 import Asistentes from "./componentes/Asistentes/Asistentes.jsx";
 import Perfil from "./componentes/Perfil/Perfil.jsx";
 import Layout from "./componentes/Layout/Layout.jsx";
-import ItemContainer from "./componentes/item/ItemContainer.jsx";
-import ItemList from './componentes/item/ItemList.jsx';
+import ItemContainer from "./componentes/ItemContainer/ItemContainer.jsx";
+import ItemList from './componentes/ItemList/ItemList.jsx';
 import { Routes, Route } from 'react-router-dom'
 
 const asistentes = [
