@@ -9,8 +9,7 @@ function Layout({children}){
         <>
             <Header/>
             <main>
-                //*{children}   {/* Children = Muestra los componentes contenidos dentro del elemento HTML */}
-                //* Aqui se renderizará el componente de la ruta activa
+                {/* Aqui se renderizará el componente de la ruta activa */}
                 <Outlet/>
             </main>
             <Footer/>
