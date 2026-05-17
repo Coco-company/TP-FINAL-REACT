@@ -1,6 +1,6 @@
 import {useState} from 'react';
 
-export function Item({id, nombre, precio, stock}){
+function Item({id, nombre, precio, stock}){
     const [cantidad, setCantidad] = useState(0);
     
     const incrementar = () => {
@@ -28,3 +28,5 @@ export function Item({id, nombre, precio, stock}){
 
     )
 }
+
+export default Item;

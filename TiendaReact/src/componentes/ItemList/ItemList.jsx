@@ -1,4 +1,4 @@
-import {Item} from '../Item/Item';
+import Item from '../Item/Item.jsx';
 
 function ItemList({objItems}){
     return(   
