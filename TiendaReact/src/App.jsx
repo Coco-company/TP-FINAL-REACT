@@ -19,7 +19,7 @@ function App() {
         <Route path='/' element={<h1>Pagina de Inicio</h1>} />
         <Route path='/Productos' element={<ItemListContainer />} />
         <Route path='/alta' element={<FormularioContainer />} />
-        <Route path='/Productos/:id' element={<ProductoDetalle />} />
+        <Route path='/Producto/:id' element={<ProductoDetalle />} />
       </Route>
     </Routes>
   );

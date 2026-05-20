@@ -1,19 +1,14 @@
 import {Item} from "../item/Item.jsx";
+import styles from "./ItemList.module.css";
 
 function ItemList({objItems}){
     return(   
-        <div style={{
-            display: 'flex',
-            gap: '25px',
-            justifyContent: 'center',
-            flexWrap: 'wrap'       
-        }}>
+        <div className={styles.divItemList}>
             {objItems.map((item) => (
                 <Item key={item.id} {...item}/>
             ))}
-            
-        </div>    
-    )   
+        </div>
+    )
 }
 
 export default ItemList;

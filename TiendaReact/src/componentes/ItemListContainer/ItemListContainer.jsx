@@ -1,16 +1,42 @@
 import ItemList from '../ItemList/ItemList.jsx';
 import productos from '/public/data/productos.json';
+import styles from './ItemListContainer.module.css';
+import react, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function ItemListContainer() {  // Children = Elementos hijos. Llama a los componentes contenidos dentro del elemento HTML
 
-    const estilo = {
-        border: "1px solid #ccc",
-        padding: "16px",
-        margin: "16px 200px",
-        backgroundColor: "teal",
-    };
+    const [productos, setProductos] = useState([]);
+    const [error, setError] = useState(null);
+    const [cargando, setCargando] = useState(true);
 
-    return <ItemList style={estilo} objItems={productos} />;
+    useEffect(() => {
+        fetch('/data/productos.json')
+        .then((respuesta) => {
+            if (!respuesta.ok){
+                throw new Error('No se pudo cargar la información de los productos');
+            };
+        return respuesta.json();
+        })
+        .then((datos) => {
+            setProductos(datos);
+        })
+        .catch((error) => {
+            setError(error.message);
+        })
+        .finally(() => {
+            setCargando(false);
+        });
+    }, []);
+
+    if(cargando){
+        return <p>Cargando Productos, por favor espere...</p>;
+    }
+    if(error){
+        return <p>Error: {error}</p>;
+    }
+
+    return <ItemList className={styles.divItemListCont} objItems={productos} />;
 }
 
 export default ItemListContainer;

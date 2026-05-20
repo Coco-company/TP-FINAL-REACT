@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import styles from './Item.module.css';
+import { Link } from 'react-router-dom';
 
 export function Item({id, nombre, precio, stock, imagen}){
     const [cantidad, setCantidad] = useState(0);
@@ -12,21 +13,24 @@ export function Item({id, nombre, precio, stock, imagen}){
     };
 
     const agregarAlCarrito = () => {
-    alert(`Agregaste ${cantidad} unidades de ${nombre} al carrito.`);
+        alert(`Agregaste ${cantidad} unidades de ${nombre} al carrito.`);
     }
 
     return (
         <div key={id} className={styles.divItem}>
-            <h3 className={styles.h3}>{nombre}</h3>
-            <p>Precio: ${precio}</p>
-            <p>Stock disponible {stock}</p>
-            <img src={imagen} alt={nombre} />
+            <Link to={`/Producto/${id}`}>
+                <h3 className={styles.h3}>{nombre}</h3>
+                <p>Precio: ${precio}</p>
+                <p>Stock disponible {stock}</p>
+                <img src={imagen} alt={nombre} />
+            </Link>
             <div className={styles.divAgrQuit} >
                 <button onClick={incrementar} >+</button>
                 <button onClick={decrementar} >-</button>
             </div>
             <button onClick={agregarAlCarrito} >Agregar al Carrito</button>
         </div>
+        
     )
 }
 
