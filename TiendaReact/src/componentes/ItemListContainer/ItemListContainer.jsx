@@ -1,4 +1,5 @@
 import ItemList from '../ItemList/ItemList.jsx';
+import productos from '/public/data/productos.json';
 
 function ItemListContainer() {  // Children = Elementos hijos. Llama a los componentes contenidos dentro del elemento HTML
 
@@ -15,7 +16,7 @@ function ItemListContainer() {  // Children = Elementos hijos. Llama a los compo
         backgroundColor: "teal",
     };
 
-    return <ItemList style={estilo} objItems={objItems} />;
+    return <ItemList style={estilo} objItems={productos} />;
 }
 
 export default ItemListContainer;

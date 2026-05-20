@@ -1,6 +1,7 @@
 import {useState} from 'react';
+import styles from './Item.module.css';
 
-function Item({id, nombre, precio, stock}){
+function Item({id, nombre, precio, stock, imagen}){
     const [cantidad, setCantidad] = useState(0);
     
     const incrementar = () => {
@@ -15,17 +16,17 @@ function Item({id, nombre, precio, stock}){
     }
 
     return (
-        <div key={id} style={{ border:'1px solic #ccc', padding: '15px', borderRadius: '8px', textAlign: 'center', backgroundColor:'azure' }}>
-            <h3>{nombre}</h3>
+        <div key={id} className={styles.divItem}>
+            <h3 className={styles.h3}>{nombre}</h3>
             <p>Precio: ${precio}</p>
-            <p>Stock disponible ${stock}</p>
-            <div style={{ display:'flex', alignItems: 'center', justifyContent: 'center', margin:'10px 0'  }}>
+            <p>Stock disponible {stock}</p>
+            <img src={imagen} alt={nombre} />
+            <div className={styles.divAgrQuit} >
                 <button onClick={incrementar} >+</button>
                 <button onClick={decrementar} >-</button>
             </div>
             <button onClick={agregarAlCarrito} >Agregar al Carrito</button>
         </div>
-
     )
 }
 

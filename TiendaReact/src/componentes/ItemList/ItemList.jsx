@@ -1,11 +1,12 @@
-import Item from '../Item/Item.jsx';
+import Item from '../Item/Item';
 
 function ItemList({objItems}){
     return(   
         <div style={{
             display: 'flex',
             gap: '25px',
-            justifyContent: 'center'           
+            justifyContent: 'center',
+            flexWrap: 'wrap'       
         }}>
             {objItems.map((item) => (
                 <Item key={item.id} {...item}/>

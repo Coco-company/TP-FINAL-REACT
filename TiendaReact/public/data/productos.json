@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "nombre":"Amarillo PLA",
+        "precio": 18000,
+        "stock": 11,
+        "imagen":"/public/images/Amarillo_PLA.jpg"
+    },
+    {
+        "id": 2,
+        "nombre":"Azul PLA",
+        "precio": 18500,
+        "stock": 12,
+        "imagen":"/public/images/Azul_PLA.jpg"
+    },
+    {
+        "id": 3,
+        "nombre":"Blanco PETG",
+        "precio": 22000,
+        "stock": 13,
+        "imagen":"/public/images/Blanco_PETG.jpg"
+    },
+    {
+        "id": 4,
+        "nombre":"Blancp PLA",
+        "precio": 18000,
+        "stock": 14,
+        "imagen":"/public/images/Blanco_PLA.jpg"
+    },
+    {
+        "id": 5,
+        "nombre":"GRIS TPU",
+        "precio": 28000,
+        "stock": 15,
+        "imagen":"/public/images/Gris_TPU.jpg"
+    },
+    {
+        "id": 6,
+        "nombre":"Naranja PLA Fluo",
+        "precio": 20000,
+        "stock": 16,
+        "imagen":"/public/images/Naranja_PLA_FLUO.jpg"
+    }
+]
