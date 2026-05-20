@@ -1,4 +1,6 @@
 import react, { useState, useEffect } from 'react';
+import styles from './Productos.module.css';
+import { Link } from 'react-router-dom';
 
 function Productos({Mensaje}){
     const [productos, setProductos] = useState([]);
@@ -37,9 +39,11 @@ function Productos({Mensaje}){
             <ul>
                 {productos.map((producto) => (
                     <li key={producto.id}>
-                        <h2>{producto.nombre}</h2>
-                        <img src={producto.imagen} alt={producto.nombre} width="150" />
-                        <p>Precio: ${producto.precio}</p>
+                        <Link to={`/Producto/${producto.id}`}>
+                            <h2>{producto.nombre}</h2>
+                            <img src={producto.imagen} alt={producto.nombre} width="150" />
+                            <p>Precio: ${producto.precio}</p>
+                        </Link>
                     </li>
                 ))}
             </ul>

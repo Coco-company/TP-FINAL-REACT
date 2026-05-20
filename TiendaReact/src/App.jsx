@@ -9,12 +9,7 @@ import Perfil from "./componentes/Perfil/Perfil.jsx";
 import Layout from "./componentes/Layout/Layout.jsx";
 import { Routes, Route } from 'react-router-dom'
 import ItemListContainer from './componentes/ItemListContainer/ItemListContainer.jsx';
-
-const asistentes = [
-  {nombre: 'Juan Perez', tareas: 'Frontend Developer', emoji: '💻'},
-  {nombre: 'Ana Gomez', tareas: 'Diseñadora UX/UI', emoji: '🎨'},
-  {nombre: 'Carlos Ruiz', tareas: 'Backend Developer', emoji: '👨‍💻'}
-];
+import ProductoDetalle from './componentes/ProductoDetalle/ProductoDetalle.jsx';
 
 function App() {
 
@@ -24,6 +19,7 @@ function App() {
         <Route path='/' element={<h1>Pagina de Inicio</h1>} />
         <Route path='/Productos' element={<ItemListContainer />} />
         <Route path='/alta' element={<FormularioContainer />} />
+        <Route path='/Productos/:id' element={<ProductoDetalle />} />
       </Route>
     </Routes>
   );

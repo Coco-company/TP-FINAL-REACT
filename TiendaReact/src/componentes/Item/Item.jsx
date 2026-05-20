@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import styles from './Item.module.css';
 
-function Item({id, nombre, precio, stock, imagen}){
+export function Item({id, nombre, precio, stock, imagen}){
     const [cantidad, setCantidad] = useState(0);
     
     const incrementar = () => {
@@ -30,4 +30,4 @@ function Item({id, nombre, precio, stock, imagen}){
     )
 }
 
-export default Item;
+//*export default Item;**//
