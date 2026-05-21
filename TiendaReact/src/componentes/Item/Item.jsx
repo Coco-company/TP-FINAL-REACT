@@ -30,7 +30,6 @@ export function Item({id, nombre, precio, stock, imagen}){
             </div>
             <button onClick={agregarAlCarrito} >Agregar al Carrito</button>
         </div>
-        
     )
 }
 

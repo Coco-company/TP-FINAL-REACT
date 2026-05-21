@@ -4,7 +4,7 @@
         "nombre":"Amarillo PLA",
         "precio": 18000,
         "stock": 11,
-        "imagen":"/images/Amarillo_PLA.jpg",
+        "imagen":"/images/Amarillo_PLA.png",
         "descripcion":"Un filamento maleable y amigable con los creadores principiantes, compuesto de un color vibrante y llamativo"
     },
     {
@@ -12,7 +12,7 @@
         "nombre":"Azul PLA",
         "precio": 18500,
         "stock": 12,
-        "imagen":"/images/Azul_PLA.jpg",
+        "imagen":"/images/Azul_PLA.png",
         "descripcion":"Un filamento maleable y amigable con los creadores principiantes, compuesto de un color solido y estable"
     },
     {
@@ -20,7 +20,7 @@
         "nombre":"Blanco PETG",
         "precio": 22000,
         "stock": 13,
-        "imagen":"/images/Blanco_PETG.jpg",
+        "imagen":"/images/Blanco_PETG.png",
         "descripcion":"Por sus propiedades y tolerancia mecánica ideal para tareas y diseños técnicos"
     },
     {
@@ -28,7 +28,7 @@
         "nombre":"Blanco PLA",
         "precio": 18000,
         "stock": 14,
-        "imagen":"/images/Blanco_PLA.jpg",
+        "imagen":"/images/Blanco_PLA.png",
         "descripcion":"Por sus propiedades neutras un filamento maleable y amigable con los creadores principiantes"
     },
     {
@@ -36,7 +36,7 @@
         "nombre":"GRIS TPU",
         "precio": 28000,
         "stock": 15,
-        "imagen":"/images/Gris_TPU.jpg",
+        "imagen":"/images/Gris_TPU.png",
         "descripcion":"Por su fexibilidad ideal para realizar piezas simil silicona. Cuidado no apto para equipos Bowden"
     },
     {
@@ -44,7 +44,7 @@
         "nombre":"Naranja PLA Fluo",
         "precio": 20000,
         "stock": 16,
-        "imagen":"/images/Naranja_PLA_FLUO.jpg",
+        "imagen":"/images/Naranja_PLA_FLUO.png",
         "descripcion":"Un filamento estable y apto para creadores principiantes, compuesto de un color vibrante y llamativo"
     }
 ]

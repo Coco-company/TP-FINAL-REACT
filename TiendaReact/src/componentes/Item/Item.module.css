@@ -4,17 +4,18 @@
 }
 
 .divItem {
-    min-width: 280px;
+    min-width: 250px;
     padding: 15px;
-    border-radius: 8px;
-    border: 1px solic #ccc;
+    border-radius: 16px;
+    border: 1px solic var(--primer-color);
     text-align: center;
-    background-color: azure;
+    background-color: var(--tercer-color);
 }
 
 .divItem img {
     /* width: 60%; */
     height: 300px;
+        
 }
 
 .divAgrQuit {

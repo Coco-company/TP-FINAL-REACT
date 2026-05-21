@@ -2,7 +2,7 @@ import {Item} from "../item/Item.jsx";
 import styles from "./ItemList.module.css";
 
 function ItemList({objItems}){
-    return(   
+    return(
         <div className={styles.divItemList}>
             {objItems.map((item) => (
                 <Item key={item.id} {...item}/>

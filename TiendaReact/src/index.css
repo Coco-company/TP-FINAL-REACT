@@ -31,6 +31,15 @@
   @media (max-width: 1024px) {
     font-size: 16px;
   }
+
+:root {
+  --primer-color: #EFD0CA;
+  --segundo-color: #C1BCAC;
+  --tercer-color: #979B8D;
+  --cuarto-color: #5C7457;
+  --bg-color: #214E34;
+  }
+
 }
 
 @media (prefers-color-scheme: dark) {

@@ -1,5 +1,6 @@
 import {useState, useEffect } from 'react';
 import {useParams} from 'react-router-dom';
+import styles from "./ProductoDetalle.module.css";
 
 const ProductoDetalle = () => {
     const {id} = useParams();
@@ -24,7 +25,7 @@ const ProductoDetalle = () => {
     }
 
     return (
-        <div>
+        <div className={styles.divProd}>
             <h2>Detalle del Producto: {producto.nombre}</h2>
             <img src={producto.imagen} alt={producto.nombre} style={{ maxWidth: '400px'}} />
             <h3>${producto.precio}</h3>
