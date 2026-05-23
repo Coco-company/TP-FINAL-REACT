@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "nombre":"Marthin, Kardashian",
+        "cargo": "Jefe de Ventas",
+        "quote":"Hoy conseguí un descuento",
+        "imagenUrl": "/public/images/img1.png"
+    },
+    {
+        "id": 2,
+        "nombre":"August, Thosk",
+        "cargo": "Jefe de Fábrica",
+        "quote":"Casi se para todo",
+        "imagenUrl": "/public/images/img2.png"
+    },
+    {
+        "id": 3,
+        "nombre":"Silvia, Prieto",
+        "cargo": "C.E.O.",
+        "quote":"Se vienen cositas",
+        "imagenUrl": "/public/images/img3.png"
+    }
+]

@@ -5,11 +5,15 @@
 
 .divItem {
     min-width: 250px;
-    padding: 15px;
+    padding: 10px;
     border-radius: 16px;
-    border: 1px solic var(--primer-color);
     text-align: center;
-    background-color: var(--tercer-color);
+    background-color: #8BAE66;
+    text-decoration:none;
+}
+
+.Link {
+    color: black;
 }
 
 .divItem img {

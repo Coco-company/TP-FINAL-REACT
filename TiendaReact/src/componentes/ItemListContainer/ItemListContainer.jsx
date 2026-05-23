@@ -1,5 +1,5 @@
 import ItemList from '../ItemList/ItemList.jsx';
-//*import productos from '/public/data/productos.json';
+//*import productos from '/data/productos.json';
 import styles from './ItemListContainer.module.css';
 import react, { useState, useEffect } from 'react';
 

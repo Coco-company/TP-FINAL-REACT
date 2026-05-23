@@ -1,0 +1,32 @@
+.tarjeta {
+    min-width: 250px;
+
+    padding: 15px;
+    border-radius: 16px;
+    border: 1px solic grey;
+    text-align: center;
+    background-color: brown;
+}
+
+.tarjeta img {
+    width: 250px;
+    height: 350px;
+    object-fit: cover;
+    object-position: 50% 50%;
+}
+
+.tarjeta h2 {
+    color: black;
+    font: bold 1.75em 'Calibri';
+    padding: 2px;
+    margin: 2px;
+
+}
+
+.tarjeta h3 {
+    color: black;
+    font: bolder 1.3em 'Calibri';
+    padding: 2px;
+    margin: 2px;
+
+}

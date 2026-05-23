@@ -5,7 +5,6 @@ import './App.css'
 import {FormularioContainer} from './componentes/FormularioContainer/FormularioContainer';
 
 import Asistentes from "./componentes/Asistentes/Asistentes.jsx";
-import Perfil from "./componentes/Perfil/Perfil.jsx";
 import Layout from "./componentes/Layout/Layout.jsx";
 import { Routes, Route } from 'react-router-dom'
 import ItemListContainer from './componentes/ItemListContainer/ItemListContainer.jsx';

@@ -18,7 +18,7 @@ export function Item({id, nombre, precio, stock, imagen}){
 
     return (
         <div key={id} className={styles.divItem}>
-            <Link to={`/Producto/${id}`}>
+            <Link to={`/Producto/${id}`} style={{ textDecoration: 'none', color: 'black' }}>
                 <h3 className={styles.h3}>{nombre}</h3>
                 <p>Precio: ${precio}</p>
                 <p>Stock disponible {stock}</p>
