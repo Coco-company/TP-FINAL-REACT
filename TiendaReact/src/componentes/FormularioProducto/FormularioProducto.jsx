@@ -1,34 +1,28 @@
 import React from 'react';
+import style from './FormularioProducto.module.css';
 
-export function FormularioProducto(){
-
-const formEstilo = {
-    diplay:'flex',
-    
-    maxWidth: '24rem',
-    margin: '3rem auto',
-    padding: '1.5rem',
-    border: '1px solid #ddd',
-    borderRadius: '8px',
-    gap: '16px'
-}; //* ACÁ ADENTRO COLOCAR ESTILOS
+export function FormularioProducto({datosForm, manejarCambio, manejarEnvio, manejarCambioImagen}){
 
     return (
-        <form style={formEstilo}>
-            <h3>Alta producto</h3>
+        <form className={style.form} onSubmit={manejarEnvio} >
+            <h3 className={style.h3}>Alta de Producto</h3>
             <div>
-                <label>Nombre de Producto </label>
-                <input type="text" placeholder="" />
-                <br/>
-                <label>Precio </label>
-                <input type="number" placeholder="$ 0.0" />
-                <br/>
+                <label>Producto </label>
+                <input type="text" placeholder="" name="nombre" value={datosForm.nombre} onChange={manejarCambio} />
+                
+                <label>Precio $ </label>
+                <input type="number" placeholder="0" name="precio" value={datosForm.precio} onChange={manejarCambio} />
+                
                 <label>Stock </label>
-                <input type="number" placeholder="Coloque la cantidad en depósito" />
-                <br/>
+                <input type="number" placeholder="Coloque la cantidad en depósito" name="stock" value={datosForm.stock} onChange={manejarCambio} />
+                                
+                <label>Descripcion </label>
+                <textarea placeholder="Coloque la descripcion del producto" name="descripcion" value={datosForm.descripcion} rows="5" onChange={manejarCambio} />
+
                 <label>Imagen </label>
-                <input type="file" placeholder="https://..." />
+                <input type="file" placeholder="https://..." name="imagen" value={datosForm.imagen} onChange={manejarCambioImagen} />
             </div>
+            
             <button type="submit">Guardar Producto</button>
         </form>
     )

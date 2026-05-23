@@ -1,0 +1,65 @@
+.form {
+    max-width: 30rem;
+    margin: 3rem auto;
+    padding: 1rem;
+    border: 1px solid var(--textos);
+    border-radius: 16px;
+    background-color: var(--fondos);
+    color: var(--textos);
+}
+
+.h3 {
+    font-size: 2em;
+    border: 0;
+    margin: 0.5em 0 1.5em;
+    padding: 0;
+}
+
+.form div {
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    /* flex-direction: column; */
+    border-radius: 8px;
+    gap: 6px;
+    width: 26rem;
+}
+
+.form label {
+    flex: 0 0 calc(32% - 10px);
+    font-size: larger;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+}
+
+.form input, .form textarea {
+    background-color: #92aa92;
+    font-size: large;
+    flex: 0 0 calc(65% - 10px);
+    margin: 0;
+    padding: 0;
+}
+
+
+.form button, .form input{
+    color: inherit;
+}
+
+.form button {
+    margin: 3em 0.5em 0.5em;
+    padding: 0.5em 1.5em;
+    font-size: 1rem;
+    font-weight: 800;
+    border: 0.1em solid var(--textos);
+    border-radius: 6px;
+    
+}
+
+.form input[type="file"]{
+    max-width: 16.4rem;
+}
+
+.form input[type="file"]::file-selector-button{
+    color: var(--textos);
+}

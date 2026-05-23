@@ -3,23 +3,30 @@ import { FormularioProducto } from '../FormularioProducto/FormularioProducto.jsx
 
 export function FormularioContainer(){
 
-    const [ datosForm, setDatosForm ] = useState({
+    const datosFormVacios = {
         nombre: '',
         preico: '',
-        stock: ''
-    });
+        stock: '',
+        imagenFile: ''
+    }
+
+    const [ datosForm, setDatosForm ] = useState(datosFormVacios);
 
     //* CODIGO PARA IMAGEN
     const [imagenFile, setImagenFile] = useState(null);
 
     const manejarCambio = (evento) => {
         
-        //* TOMO LOS DATOS DEL EVENTO LOS GUARDO Y ACTUALIZO EL OBJ datosForm *//
-        const {name, value } = evento.target;
-        setDatosForm({
-            ...datosForm,
-            [name]: value
-        });
+        if(evento.target.key == "reset") {
+            setDatosForm(datosFormVacios);
+        }else{
+            //* TOMO LOS DATOS DEL EVENTO LOS GUARDO Y ACTUALIZO EL OBJ datosForm *//
+            const {name, value } = evento.target;
+            setDatosForm({
+                ...datosForm,
+                [name]: value
+            });
+        }
     };
 
     const manejarCambioImagen = (evento) => {
@@ -70,7 +77,6 @@ export function FormularioContainer(){
             console.log("Error en el proceso de envío:", error);
             alert("Hubo un error al subir la imagen Por favor intente de nuevo.");
         }
-        
     };
 
     return (

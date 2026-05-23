@@ -2,17 +2,17 @@
     min-width: 250px;
 
     padding: 15px;
-    border-radius: 16px;
+    border-radius: 8em 8em 1em 1em;
+    
     border: 1px solic grey;
     text-align: center;
     background-color: brown;
 }
 
 .tarjeta img {
-    width: 250px;
-    height: 350px;
     object-fit: cover;
     object-position: 50% 50%;
+
 }
 
 .tarjeta h2 {
@@ -30,3 +30,14 @@
     margin: 2px;
 
 }
+
+
+.mascara {
+  -webkit-mask-image: url(/images/Mascara.png);
+  mask-image: url(/images/Mascara.png);
+  mask-repeat: no-repeat;
+  height: 70%;    
+  object-fit: cover;
+  overflow: hidden;
+}
+
