@@ -22,6 +22,8 @@
   --color2over: rgb(165, 42, 42, 0.8);
   --color3: yellow;
 
+  --heroText: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;

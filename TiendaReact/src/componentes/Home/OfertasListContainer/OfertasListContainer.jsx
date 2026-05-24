@@ -1,8 +1,8 @@
-import ItemList from '../ItemList/ItemList.jsx';
-import styles from './ItemListContainer.module.css';
-import react, { useState, useEffect } from 'react';
+import OfertasList from '../OfertasList/OfertasList.jsx';
+import styles from './OfertasListContainer.module.css';
+import { useState, useEffect } from 'react';
 
-function ItemListContainer() {  // Children = Elementos hijos. Llama a los componentes contenidos dentro del elemento HTML
+function OfertasListContainer() {  // Children = Elementos hijos. Llama a los componentes contenidos dentro del elemento HTML
 
     const [productos, setProductos] = useState([]);
     const [error, setError] = useState(null);
@@ -33,7 +33,7 @@ function ItemListContainer() {  // Children = Elementos hijos. Llama a los compo
     if(error){
         return <p>Error: {error}</p>;
     }
-    return <ItemList className={styles.divItemListCont} objItems={productos} />;
+    return <OfertasList className={styles.OfertasList} objItems={productos} />;
 }
 
-export default ItemListContainer;
+export default OfertasListContainer;

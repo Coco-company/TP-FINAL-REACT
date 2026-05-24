@@ -1,0 +1,63 @@
+.h3 {
+    padding:2px;
+    margin: 0.3em 0;
+    background-color: var(--color2);
+    border: 0 solid;
+    border-radius: 6px;
+}
+
+.ofertaItem {
+    min-width: 250px;
+    padding: 10px;
+    border-radius: 16px;
+    text-align: center;
+    background-color: var(--color3);
+    text-decoration:none;
+}
+
+.ofertaItem * {
+    color: var(--textos);
+}
+
+.ofertaItem img {
+    /* width: 60%; */
+    height: 300px;
+        
+}
+
+.divAgrQuit {
+    font-size: 1.5em;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.precio {
+    font-weight: 600;
+    font-size: larger;
+}
+
+.stock {
+    margin: 5px;
+}
+
+.ofertaItem button {
+    background-color: var(--color2);
+    
+    border: 0 solid;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 5px 10px;
+    padding: 5px 2rem;
+}
+
+.ofertaItem button:hover {
+    background-color: var(--color2over);
+    cursor: pointer;
+}
+
+.ofertaItem button:active {
+    background-color: var(--color3);
+}

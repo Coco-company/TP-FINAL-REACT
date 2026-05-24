@@ -6,3 +6,9 @@
     background-color: var(--fondos);
     text-decoration:none;
 }
+
+.divHome h1 {
+    font-family: var(--heroText);
+    font-kerning: 1px;
+    color: var(--color3);
+}
