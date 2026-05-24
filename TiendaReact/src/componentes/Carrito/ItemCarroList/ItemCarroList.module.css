@@ -1,0 +1,12 @@
+.divItemCarroList {
+    justify-content: center;
+    padding: 2em 0;
+    background-color: var(--fondos);
+}
+
+.divItemCarroList h2 {
+    font-family: var(--heroText);
+    font-size: 2rem;
+    font-kerning: 5px;
+    color: var(--textos);
+}
