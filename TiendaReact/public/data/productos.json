@@ -6,7 +6,7 @@
         "stock": 11,
         "imagen":"/images/Amarillo_PLA.png",
         "descripcion":"Un filamento maleable y amigable con los creadores principiantes, compuesto de un color vibrante y llamativo",
-        "oferta":true
+        "oferta":false
     },
     {
         "id": 2,
@@ -24,7 +24,7 @@
         "stock": 13,
         "imagen":"/images/Blanco_PETG.png",
         "descripcion":"Por sus propiedades y tolerancia mecánica ideal para tareas y diseños técnicos",
-        "oferta":false
+        "oferta":true
     },
     {
         "id": 4,
@@ -51,6 +51,6 @@
         "stock": 16,
         "imagen":"/images/Naranja_PLA_FLUO.png",
         "descripcion":"Un filamento estable y apto para creadores principiantes, compuesto de un color vibrante y llamativo",
-        "oferta":false
+        "oferta":true
     }
 ]
