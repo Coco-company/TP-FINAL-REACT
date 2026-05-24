@@ -1,6 +1,7 @@
 import {useState, useEffect } from 'react';
 import {useParams} from 'react-router-dom';
 import styles from "./ProductoDetalle.module.css";
+import { Link } from 'react-router-dom';
 
 const ProductoDetalle = () => {
     const {id} = useParams();
@@ -26,10 +27,12 @@ const ProductoDetalle = () => {
 
     return (
         <div className={styles.divProd}>
-            <h2>Detalle del Producto: {producto.nombre}</h2>
-            <img src={producto.imagen} alt={producto.nombre} style={{ maxWidth: '400px'}} />
-            <h3>${producto.precio}</h3>
-            <p>{producto.descripcion}</p>
+            <Link to={"/Productos"} style={{ textDecoration: 'none', color: 'black' }}>
+                <h2>{producto.nombre}</h2>
+                <img src={producto.imagen} alt={producto.nombre} style={{ maxWidth: '400px'}} />
+                <h3>${producto.precio}</h3>
+                <p>{producto.descripcion}</p>
+            </Link>
         </div>
     );
 };

@@ -1,6 +1,9 @@
 .h3 {
     padding:2px;
-    margin: 2px;
+    margin: 0.3em 0;
+    background-color: var(--color2);
+    border: 0 solid;
+    border-radius: 6px;
 }
 
 .divItem {
@@ -12,8 +15,8 @@
     text-decoration:none;
 }
 
-.Link {
-    color: black;
+.divItem * {
+    color: var(--textos);
 }
 
 .divItem img {
@@ -25,15 +28,36 @@
 .divAgrQuit {
     font-size: 1.5em;
     display: flex;
+    gap: 2rem;
     align-items: center;
     justify-content: center;
-    margin: 10px 0;
 }
 
-.divAgrQuit *{
-    font-size: 0.8em;
-    width: 20%;
-    margin: 0 10px;
+.precio {
+    font-weight: 600;
+    font-size: larger;
+}
+
+.stock {
+    margin: 5px;
+}
+
+.divItem button {
+    background-color: var(--color2);
+    border: 0 solid;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 5px 10px;
+    padding: 5px 2rem;
+
     
 }
 
+.divItem button:hover {
+    cursor: pointer;
+}
+
+.divItem button:active {
+    background-color: var(--color3);
+}

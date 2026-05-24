@@ -20,9 +20,9 @@ export function Item({id, nombre, precio, stock, imagen}){
         <div key={id} className={styles.divItem}>
             <Link to={`/Producto/${id}`} style={{ textDecoration: 'none', color: 'black' }}>
                 <h3 className={styles.h3}>{nombre}</h3>
-                <p>Precio: ${precio}</p>
-                <p>Stock disponible {stock}</p>
                 <img src={imagen} alt={nombre} />
+                <p className={styles.precio}>${precio}</p>
+                <p className={styles.stock}>Stock: {stock}</p>
             </Link>
             <div className={styles.divAgrQuit} >
                 <button onClick={incrementar} >+</button>

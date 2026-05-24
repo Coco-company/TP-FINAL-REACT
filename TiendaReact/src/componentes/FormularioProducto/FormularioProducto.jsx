@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './FormularioProducto.module.css';
 
-export function FormularioProducto({datosForm, manejarCambio, manejarEnvio, manejarCambioImagen}){
+export function FormularioProducto({datosForm, manejarCambio, manejarEnvio}){
 
     return (
         <form className={style.form} onSubmit={manejarEnvio} >
@@ -20,7 +20,7 @@ export function FormularioProducto({datosForm, manejarCambio, manejarEnvio, mane
                 <textarea placeholder="Coloque la descripcion del producto" name="descripcion" value={datosForm.descripcion} rows="5" onChange={manejarCambio} />
 
                 <label>Imagen </label>
-                <input type="file" placeholder="https://..." name="imagen" value={datosForm.imagen} onChange={manejarCambioImagen} />
+                <input type="file" placeholder="https://..." name="imagen" value={datosForm.imagen} onChange={manejarCambio} />
             </div>
             
             <button type="submit">Guardar Producto</button>

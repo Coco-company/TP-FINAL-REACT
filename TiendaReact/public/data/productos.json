@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "nombre":"Amarillo PLA",
+        "nombre":"Filamento PLA Amarillo",
         "precio": 18000,
         "stock": 11,
         "imagen":"/images/Amarillo_PLA.png",
@@ -9,7 +9,7 @@
     },
     {
         "id": 2,
-        "nombre":"Azul PLA",
+        "nombre":"Filamento PLA Azul",
         "precio": 18500,
         "stock": 12,
         "imagen":"/images/Azul_PLA.png",
@@ -17,7 +17,7 @@
     },
     {
         "id": 3,
-        "nombre":"Blanco PETG",
+        "nombre":"Filamento PETG Blanco",
         "precio": 22000,
         "stock": 13,
         "imagen":"/images/Blanco_PETG.png",
@@ -25,7 +25,7 @@
     },
     {
         "id": 4,
-        "nombre":"Blanco PLA",
+        "nombre":"Filamento PLA Blanco",
         "precio": 18000,
         "stock": 14,
         "imagen":"/images/Blanco_PLA.png",
@@ -33,7 +33,7 @@
     },
     {
         "id": 5,
-        "nombre":"GRIS TPU",
+        "nombre":"Filamento TPU Gris",
         "precio": 28000,
         "stock": 15,
         "imagen":"/images/Gris_TPU.png",
@@ -41,7 +41,7 @@
     },
     {
         "id": 6,
-        "nombre":"Naranja PLA Fluo",
+        "nombre":"Filamento PLA Naranja Fluo",
         "precio": 20000,
         "stock": 16,
         "imagen":"/images/Naranja_PLA_FLUO.png",

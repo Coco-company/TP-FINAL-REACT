@@ -16,17 +16,13 @@ export function FormularioContainer(){
     const [imagenFile, setImagenFile] = useState(null);
 
     const manejarCambio = (evento) => {
-        
-        if(evento.target.key == "reset") {
-            setDatosForm(datosFormVacios);
-        }else{
-            //* TOMO LOS DATOS DEL EVENTO LOS GUARDO Y ACTUALIZO EL OBJ datosForm *//
-            const {name, value } = evento.target;
-            setDatosForm({
-                ...datosForm,
-                [name]: value
-            });
-        }
+
+        //* TOMO LOS DATOS DEL EVENTO LOS GUARDO Y ACTUALIZO EL OBJ datosForm *//
+        const {name, value } = evento.target;
+        setDatosForm({
+            ...datosForm,
+            [name]: value
+        });
     };
 
     const manejarCambioImagen = (evento) => {

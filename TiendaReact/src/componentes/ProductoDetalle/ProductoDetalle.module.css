@@ -1,14 +1,35 @@
 .divProd {
     min-width: 250px;
-    padding: 15px;
+    padding: 10px;
     border-radius: 16px;
-    border: 1px solic var(--segundo-color);
     text-align: center;
-    background-color: var(--primer-color);
+    background-color: var(--fondos);
+    text-decoration:none;
+}
+
+.divProd * {
+    color: var(--textos);
+}
+
+.divProd h2 {
+    padding: 0.5em;
+    margin: 0.3em 0;
+    font-size: xx-large;
+    font-weight: 700;
+}
+
+.divProd h3 {
+    padding:2px;
+    margin: 0.3em 0;
 }
 
 .divProd img {
     /* width: 60%; */
     height: 300px;
         
+}
+
+.divProd p {
+    margin-bottom: 1rem;
+    font-style: italic;
 }

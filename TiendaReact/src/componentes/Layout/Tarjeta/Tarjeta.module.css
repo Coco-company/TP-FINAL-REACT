@@ -6,7 +6,7 @@
     
     border: 1px solic grey;
     text-align: center;
-    background-color: brown;
+    background-color: var(--color2);
 }
 
 .tarjeta img {
