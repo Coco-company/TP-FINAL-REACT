@@ -1,8 +1,12 @@
-import {useState} from 'react';
-import styles from './Item.module.css';
 import { Link } from 'react-router-dom';
+import { useCart } from '../../Carrito/CartContext';
+import { useState } from 'react';
+import styles from './Item.module.css';
 
 export function Item({id, nombre, precio, stock, imagen}){
+    
+    const producto = {id, nombre, precio, stock, imagen};
+    
     const [cantidad, setCantidad] = useState(0);
     
     const incrementar = () => {
@@ -12,9 +16,16 @@ export function Item({id, nombre, precio, stock, imagen}){
         if(cantidad < stock){setCantidad(cantidad-1); }
     };
 
-    const agregarAlCarrito = () => {
+    // const agregarAlCarrito = () => {
+    //     alert(`Agregaste ${cantidad} unidades de ${nombre} al carrito.`);
+    // }
+
+    const { addToCart } = useCart();
+
+    const handleAddToCart = () => {
+        addToCart(producto, cantidad);
         alert(`Agregaste ${cantidad} unidades de ${nombre} al carrito.`);
-    }
+    };
 
     return (
         <div key={id} className={styles.divItem}>
@@ -28,9 +39,9 @@ export function Item({id, nombre, precio, stock, imagen}){
                 <button onClick={incrementar} >+</button>
                 <button onClick={decrementar} >-</button>
             </div>
-            <button onClick={agregarAlCarrito} >Agregar al Carrito</button>
+            <button onClick={handleAddToCart} >Agregar {cantidad} al Carrito</button>
         </div>
-    )
+    );
 }
 
-//*export default Item;**//
+export default Item;
