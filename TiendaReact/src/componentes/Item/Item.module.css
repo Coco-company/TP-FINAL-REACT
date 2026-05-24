@@ -44,17 +44,17 @@
 
 .divItem button {
     background-color: var(--color2);
+    
     border: 0 solid;
     border-radius: 6px;
     font-size: 1rem;
     font-weight: 600;
     margin: 5px 10px;
     padding: 5px 2rem;
-
-    
 }
 
 .divItem button:hover {
+    background-color: var(--color2over);
     cursor: pointer;
 }
 

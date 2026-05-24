@@ -1,0 +1,12 @@
+
+.h2 {
+    padding: 0.5em;
+    margin: 0.3em 2.5em;
+    border: 0 solid;
+    border-radius: 6px;
+    font-size: xx-large;
+    font-weight: 700;
+    color: var(--texto);
+    background-color: var(--color2);
+    
+}

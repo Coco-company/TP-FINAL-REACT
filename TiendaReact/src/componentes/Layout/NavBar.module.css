@@ -22,10 +22,17 @@
     padding: 1em;
     width: 12rem;
     align-content: center;
+
  
 }
 
 .li * {
+    color: var(--textos);
     text-decoration: none;
     font-size: 1.8em;
+    font-weight: 500;
+}
+
+.li *:hover {
+    color: var(--textosOver);
 }

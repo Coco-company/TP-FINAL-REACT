@@ -1,4 +1,4 @@
-import TarjetaLista from '../TarjetaLista/TarjetaLista';
+import TarjetaLista from '../TarjetaLista/TarjetaLista.jsx';
 import styles from './TarjetaListaCont.module.css';
 import react, { useState, useEffect } from 'react';
 

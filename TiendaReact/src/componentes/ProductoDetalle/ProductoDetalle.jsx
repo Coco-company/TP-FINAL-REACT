@@ -30,8 +30,10 @@ const ProductoDetalle = () => {
             <Link to={"/Productos"} style={{ textDecoration: 'none', color: 'black' }}>
                 <h2>{producto.nombre}</h2>
                 <img src={producto.imagen} alt={producto.nombre} style={{ maxWidth: '400px'}} />
-                <h3>${producto.precio}</h3>
-                <p>{producto.descripcion}</p>
+                <div className={styles.textoPie}>
+                    <h3>${producto.precio}</h3>
+                    <p>{producto.descripcion}</p>
+                </div>
             </Link>
         </div>
     );

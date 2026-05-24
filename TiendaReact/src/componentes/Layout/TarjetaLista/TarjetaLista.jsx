@@ -1,4 +1,4 @@
-import Tarjeta from "../Tarjeta/Tarjeta";
+import Tarjeta from "../Tarjeta/Tarjeta.jsx";
 import styles from "./TarjetaLista.module.css";
 
 function TarjetaLista({objPersonal}){
