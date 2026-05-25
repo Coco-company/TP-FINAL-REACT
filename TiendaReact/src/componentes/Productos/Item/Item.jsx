@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { useCart } from '../../Carrito/CartContext';
 import { useState } from 'react';
+import { useCart } from '../../context/CartContext.jsx';
 import styles from './Item.module.css';
 
 export function Item({id, nombre, precio, stock, imagen}){
@@ -16,12 +16,7 @@ export function Item({id, nombre, precio, stock, imagen}){
         if(cantidad < stock){setCantidad(cantidad-1); }
     };
 
-    // const agregarAlCarrito = () => {
-    //     alert(`Agregaste ${cantidad} unidades de ${nombre} al carrito.`);
-    // }
-
-    const { addToCart } = useCart();
-
+    const { addToCart } = useCart(); // Traemos la función del contexto
     const handleAddToCart = () => {
         addToCart(producto, cantidad);
         alert(`Agregaste ${cantidad} unidades de ${nombre} al carrito.`);
@@ -39,7 +34,7 @@ export function Item({id, nombre, precio, stock, imagen}){
                 <button onClick={incrementar} >+</button>
                 <button onClick={decrementar} >-</button>
             </div>
-            <button onClick={handleAddToCart} >Agregar {cantidad} al Carrito</button>
+            <button onClick={handleAddToCart}> Agregar {cantidad} al Carrito</button>
         </div>
     );
 }
