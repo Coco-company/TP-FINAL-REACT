@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import { useCart } from '../../context/CartContext.jsx';
+import { useCart } from '../../Carrito/useCart.jsx';
 import styles from './Item.module.css';
 
 export function Item({id, nombre, precio, stock, imagen}){

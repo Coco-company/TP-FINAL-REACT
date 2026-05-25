@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import {nav, ul, li} from './NavBar.module.css';
-import { useCart } from '../../context/CartContext.jsx';
+import { useCart } from '../Carrito/useCart.jsx';
 
 export const NavBar = () => {
 
