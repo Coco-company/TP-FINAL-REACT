@@ -22,7 +22,7 @@
     padding: 1em;
     width: 12rem;
     align-content: center;
-
+    position: relative;
  
 }
 
@@ -35,4 +35,21 @@
 
 .li *:hover {
     color: var(--textosOver);
+}
+
+.li div {
+    position: absolute;
+    top: 0.25rem;
+    right: 2.5rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 1rem;
+    background-color: var(--color3);
+}
+
+.li div span {
+    position: absolute;
+    top: 0.25rem;
+    right: 0.5rem;
+    font-size: 0.6em;
 }
