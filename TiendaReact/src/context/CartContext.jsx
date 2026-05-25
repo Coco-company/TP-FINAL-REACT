@@ -1,4 +1,4 @@
-import { useState, useContext, createContext } from 'react';
+import { useState } from 'react';
 import { CartContext } from './context.jsx';
 
 export const CartProvider = ({ children }) => {

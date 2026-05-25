@@ -1,4 +1,4 @@
-import {Item} from "../item/Item.jsx";
+import {Item} from "../Item/Item.jsx";
 import styles from "./ItemList.module.css";
 
 function ItemList({objItems}){

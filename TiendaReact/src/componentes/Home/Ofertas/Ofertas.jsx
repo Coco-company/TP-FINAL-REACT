@@ -13,7 +13,7 @@ const Ofertas = ({id, nombre, precio, stock, imagen}) => {
     };
 
     const agregarAlCarrito = () => {
-        alert(`Agregaste ${cantidad} unidades de ${nombre} al carrito.`);
+        //alert(`Agregaste ${cantidad} unidades de ${nombre} al carrito.`);
     }
 
     return (

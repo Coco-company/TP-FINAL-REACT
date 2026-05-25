@@ -17,9 +17,10 @@ export function Item({id, nombre, precio, stock, imagen}){
     };
 
     const { addToCart } = useCart(); // Traemos la función del contexto
+    
     const handleAddToCart = () => {
         addToCart(producto, cantidad);
-        alert(`Agregaste ${cantidad} unidades de ${nombre} al carrito.`);
+        //alert(`Agregaste ${cantidad} unidades de ${nombre} al carrito.`);
     };
 
     return (

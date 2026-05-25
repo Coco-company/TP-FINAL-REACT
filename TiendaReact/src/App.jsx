@@ -5,7 +5,6 @@ import Home from './componentes/Home/Home.jsx';
 import ItemListContainer from './componentes/Productos/ItemListContainer/ItemListContainer.jsx';
 import ProductoDetalle from './componentes/Productos/ProductoDetalle/ProductoDetalle.jsx';
 import {FormularioContainer} from './componentes/Alta/FormularioContainer/FormularioContainer';
-import CarroContainer from './componentes/Carrito/ItemCarroListContainer/ItemCarroListContainer.jsx'
 import Cart from './componentes/Carrito/Cart.jsx';
 
 //*import Carrito from './';
