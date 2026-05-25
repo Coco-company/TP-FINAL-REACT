@@ -29,7 +29,7 @@ export function Item({id, nombre, precio, stock, imagen}){
                 <h3 className={styles.h3}>{nombre}</h3>
                 <img src={imagen} alt={nombre} />
                 <p className={styles.precio}>${precio}</p>
-                <p className={styles.stock}>Stock: {stock}</p>
+                <p className={styles.stock}>Stock: {stock} - <i>Clic para más info.</i></p>
             </Link>
             <div className={styles.divAgrQuit} >
                 <button onClick={incrementar} >+</button>

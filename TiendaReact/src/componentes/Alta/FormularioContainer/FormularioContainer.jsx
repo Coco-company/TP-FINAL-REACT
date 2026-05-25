@@ -40,7 +40,8 @@ export function FormularioContainer(){
         }
 
         //* SUBIR IMAGEN A IMGBB
-        const apiKey = '5b34ca3e590a988793a9e6e76fa17930';
+        const apiKey = 'b6301cee8b325572aea89f024a152ef7';
+        
         //* OBJETO FormData PARA ENVIAR ARCHIVOS Y DATOS DE FORMULARIO 
         const formData = new FormData();
         formData.append('image',imagenFile);

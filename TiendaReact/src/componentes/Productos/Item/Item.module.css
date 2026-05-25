@@ -8,7 +8,7 @@
 
 .divItem {
     min-width: 250px;
-    padding: 10px;
+    padding: 5px;
     border-radius: 16px;
     text-align: center;
     background-color: var(--color3);
@@ -28,7 +28,7 @@
 .divAgrQuit {
     font-size: 1.5em;
     display: flex;
-    gap: 2rem;
+    gap: 0.1rem;
     align-items: center;
     justify-content: center;
 }
@@ -50,6 +50,14 @@
     font-weight: 600;
     margin: 5px 10px;
     padding: 5px 2rem;
+}
+
+.divAgrQuit button{
+    width: 7.2rem;
+}
+
+.divItem > button {
+    width: 15.6rem;
 }
 
 .divItem button:hover {
