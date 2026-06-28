@@ -4,23 +4,29 @@ import { useCart } from '../../Carrito/useCart.jsx';
 import styles from './Item.module.css';
 
 export function Item({id, nombre, precio, stock, imagen}){
-    
     const producto = {id, nombre, precio, stock, imagen};
-    
+    // Traemos la función del contexto
+    const { addToCart, getCantidadActual } = useCart(); 
     const [cantidad, setCantidad] = useState(0);
     
+    // Obtenemos cantidad del carrito PREVIA desde el contexto
+    const cantidadActual = getCantidadActual(producto.id);
+
     const incrementar = () => {
         if(cantidad < stock){setCantidad(cantidad+1); }
     };
     const decrementar = () => {
         if(cantidad < stock){setCantidad(cantidad-1); }
     };
-
-    const { addToCart } = useCart(); // Traemos la función del contexto
-    
+   
     const handleAddToCart = () => {
         addToCart(producto, cantidad);
         //alert(`Agregaste ${cantidad} unidades de ${nombre} al carrito.`);
+    };
+
+    const [esFavorito, setEsFavorito] = useState(false);
+    const marcarComoFavorito = () => {
+        setEsFavorito(!esFavorito);
     };
 
     return (
@@ -33,6 +39,7 @@ export function Item({id, nombre, precio, stock, imagen}){
             </Link>
             <div className={styles.divAgrQuit} >
                 <button onClick={incrementar} >+</button>
+                {/* <p>Cantidad en carro ${cantidadActual}</p>*/}
                 <button onClick={decrementar} >-</button>
             </div>
             <button onClick={handleAddToCart}> Agregar {cantidad} al Carrito</button>
