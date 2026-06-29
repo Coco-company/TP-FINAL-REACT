@@ -14,6 +14,7 @@ export const NavBar = () => {
                 <li className={li}><Link to="/">Home</Link></li>
                 <li className={li}><Link to='/Productos'>Productos</Link></li>
                 <li className={li}><Link to='/alta'>Alta Producto</Link></li>
+                <li className={li}><Link to='/productosNacionales'>Productos Nacionales</Link></li>
                 <li className={li}><Link to="/carrito">Carrito {totalItems > 0 && <div><span>{totalItems}</span></div>}</Link></li>
             </ul>
         </nav>

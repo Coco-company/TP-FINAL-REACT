@@ -4,7 +4,8 @@ import Layout from "./componentes/Layout/Layout.jsx";
 import Home from './componentes/Home/Home.jsx';
 import ItemListContainer from './componentes/Productos/ItemListContainer/ItemListContainer.jsx';
 import ProductoDetalle from './componentes/Productos/ProductoDetalle/ProductoDetalle.jsx';
-import {FormularioContainer} from './componentes/Alta/FormularioContainer/FormularioContainer';
+import {FormularioContainer} from './componentes/Alta/FormularioContainer/FormularioContainer.jsx';
+import ProductosNacionales from './componentes/ProductosNacionales.jsx';
 import Cart from './componentes/Carrito/Cart.jsx';
 
 //*import Carrito from './';
@@ -18,6 +19,7 @@ function App() {
         <Route path='/Productos' element={<ItemListContainer />} />
         <Route path='/alta' element={<FormularioContainer />} />
         <Route path='/Producto/:id' element={<ProductoDetalle />} />
+        <Route path='/ProductosNacionales' element={<ProductosNacionales/>} />
         <Route path='/Carrito' element={<Cart />} />
       </Route>
     </Routes>
