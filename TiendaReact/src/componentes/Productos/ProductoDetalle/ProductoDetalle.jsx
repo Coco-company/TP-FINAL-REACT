@@ -4,6 +4,7 @@ import styles from "./ProductoDetalle.module.css";
 import { Link } from 'react-router-dom';
 
 const ProductoDetalle = () => {
+    alert("paso");
     const {id} = useParams();
     const [producto, setProducto] = useState(null);
 
@@ -16,6 +17,7 @@ const ProductoDetalle = () => {
             })
             .catch(error => console.error("Error al cargar el producto:", error));
     }, [id]);
+
 
     if(!producto){
         return <h2>Cargndo detalle del producto...</h2>;

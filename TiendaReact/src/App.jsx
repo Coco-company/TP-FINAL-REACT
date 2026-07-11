@@ -2,12 +2,14 @@ import './App.css'
 import { Routes, Route } from 'react-router-dom'
 import Layout from "./componentes/Layout/Layout.jsx";
 import Home from './componentes/Home/Home.jsx';
+import Gestion from './componentes/Gestion/Gestion.jsx';
 import ItemListContainer from './componentes/Productos/ItemListContainer/ItemListContainer.jsx';
-import ProductosNacionales from './componentes/ProductosNacionales_.jsx';
+import ProductosNacionales from './componentes/ProductosNacionales.jsx';
+import ProductosNacionalesDetalle from './componentes/ProductosNacionalesDetalle.jsx';
 import ProductoDetalle from './componentes/Productos/ProductoDetalle/ProductoDetalle.jsx';
 import {FormularioContainer} from './componentes/Alta/FormularioContainer/FormularioContainer.jsx';
-
 import Cart from './componentes/Carrito/Cart.jsx';
+
 
 //*import Carrito from './';
 
@@ -17,11 +19,13 @@ function App() {
     <Routes>
       <Route element={<Layout/>}>
         <Route path='/' element={<Home/>} />
-        <Route path='/Productos' element={<ItemListContainer />} />
-        <Route path='/alta' element={<FormularioContainer />} />
+        <Route path='/Productos' element={<ItemListContainer Mensaje={"Nuestros productos"} />} />
         <Route path='/Producto/:id' element={<ProductoDetalle />} />
         <Route path='/ProductosNacionales' element={<ProductosNacionales/>} />
+        <Route path='/ProductoNacional/:id' element={<ProductosNacionalesDetalle/>} />
+        <Route path='/Gestion' element={<Gestion />} />
         <Route path='/Carrito' element={<Cart />} />
+       
       </Route>
     </Routes>
   );

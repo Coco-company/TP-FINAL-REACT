@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 // Importaciones clave de Firebase
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase/config.js';
+import { Link } from 'react-router-dom';
 
 const ProductosNacionales = () => {
     // Estado para guardar los productos que traigamos de la DB
@@ -24,16 +25,18 @@ const ProductosNacionales = () => {
             <div className="lista-productos">
                 {/* 5. Mapeamos el estado `productos` para renderizar cada uno */}
                 {productos.map(prod => (
+                    
                     <div key={prod.id} >
-                        <img src={prod.imagen} alt={prod.nombre} style={{
-                            width: '100px'
-                        }} />
-                        <h3>{prod.nombre}</h3>
-                        <p>Categoría: {prod.categoria}</p>
-                        <p>Precio: ${prod.precio}</p>
-                        <p>Stock: {prod.stock} unidades</p>
-                        <hr />
+                        <Link to={`/ProductoNacional/${prod.id}`} style={{ textDecoration: 'none', color: 'black' }}>
+                            <img src={prod.imagen} alt={prod.nombre} style={{width: '100px'}} />
+                            <h3>{prod.nombre}</h3>
+                            <p>Categoría: {prod.categoria}</p>
+                            <p>Precio: ${prod.precio}</p>
+                            <p>Stock: {prod.stock} unidades</p>
+                            <hr />
+                        </Link>
                     </div>
+                   
                 ))}
             </div>
         </div>
