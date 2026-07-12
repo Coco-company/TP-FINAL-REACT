@@ -31,7 +31,6 @@ export function FormularioContainer() {
     };
 
     const manejarEnvio = async (evento) => {
-
         evento.preventDefault(); //* EVITAMOS LA RECARGA *//
 
         if (!imagenFile) { //Chequear si hay imagen
@@ -74,7 +73,7 @@ export function FormularioContainer() {
                 // Obtenemos la instancia de la base de datos
                 const db = getFirestore();
                 // Apuntamos a la colección "productos" (si no existe se crea)
-                const productosCollection = collection(db, "Productos nacionales");
+                const productosCollection = collection(db, "productos nacionales");
                 // Agregamos el nuevo documento a la colección
                 await addDoc(productosCollection, productoCompleto);
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './FormularioProducto.module.css';
 
-export function FormularioProducto({datosForm, manejarCambio, manejarEnvio}){
+export function FormularioProducto({datosForm, manejarCambio, manejarEnvio, manejarCambioImagen}){
 
     return (
         <div className={styles.divProductos}>
@@ -21,7 +21,10 @@ export function FormularioProducto({datosForm, manejarCambio, manejarEnvio}){
                     <textarea placeholder="Coloque la descripcion del producto" name="descripcion" value={datosForm.descripcion} rows="5" onChange={manejarCambio} />
 
                     <label>Imagen </label>
-                    <input type="file" placeholder="https://..." name="imagen" value={datosForm.imagen} onChange={manejarCambio} />
+                    <input type="file" placeholder="https://..." name="imagen" value={datosForm.imagen} onChange={manejarCambioImagen} />
+
+                    <label>Destacado </label>
+                    <input type="checkbox" placeholder="Destacado" name="destacado" checked = {datosForm.destacado} onChange={manejarCambio} />
                 </div>
                 
                 <button type="submit">Guardar Producto</button>

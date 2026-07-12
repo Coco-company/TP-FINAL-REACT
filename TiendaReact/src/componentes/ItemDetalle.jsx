@@ -12,7 +12,7 @@ const ItemDetalle = () => {
     useEffect(() => {
         if (!id) return;
         const queryId = query(
-            collection(db, "Productos nacionales"),
+            collection(db, "productos nacionales"),
             where("id", "==", Number(id))
         );
         getDocs(queryId)
@@ -21,7 +21,7 @@ const ItemDetalle = () => {
                     console.log("No se encontró el producto");
                     return;
                 }
-                setProducto(...resp.docs[0].data());
+                setProducto({...resp.docs[0].data(), idFirestone: resp.docs[0].id });
             })
             .catch((error) => {
                 console.error("Error al cargar el producto:", error);
@@ -43,6 +43,7 @@ const ItemDetalle = () => {
                 <img src={producto.imagen} alt={producto.nombre} style={{ maxWidth: '400px' }} />
                 <div className={styles.textoPie}>
                     <h3>${producto.precio}</h3>
+                    <p>{producto.descripcion}</p>
                     <p>{producto.descripcion}</p>
                 </div>
             </Link>

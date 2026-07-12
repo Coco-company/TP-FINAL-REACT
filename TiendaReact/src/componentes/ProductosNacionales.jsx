@@ -27,14 +27,17 @@ const ProductosNacionales = () => {
                 {productos.map(prod => (
                     
                     <div key={prod.id} >
-                        <Link to={`/ProductoNacional/${prod.id}`} style={{ textDecoration: 'none', color: 'black' }}>
+                        <>
                             <img src={prod.imagen} alt={prod.nombre} style={{width: '100px'}} />
                             <h3>{prod.nombre}</h3>
                             <p>Categoría: {prod.categoria}</p>
                             <p>Precio: ${prod.precio}</p>
                             <p>Stock: {prod.stock} unidades</p>
+                            <Link to={`/ProductoNacional/${prod.id}`} style={{ textDecoration: 'none', color: 'black' }}>
+                                Ver detalle
+                            </Link>
                             <hr />
-                        </Link>
+                        </>
                     </div>
                    
                 ))}
@@ -42,4 +45,5 @@ const ProductosNacionales = () => {
         </div>
     );
 };
+
 export default ProductosNacionales;

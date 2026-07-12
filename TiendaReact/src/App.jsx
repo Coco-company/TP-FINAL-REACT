@@ -7,7 +7,7 @@ import ItemListContainer from './componentes/Productos/ItemListContainer/ItemLis
 import ProductosNacionales from './componentes/ProductosNacionales.jsx';
 import ProductosNacionalesDetalle from './componentes/ProductosNacionalesDetalle.jsx';
 import ProductoDetalle from './componentes/Productos/ProductoDetalle/ProductoDetalle.jsx';
-import {FormularioContainer} from './componentes/Alta/FormularioContainer/FormularioContainer.jsx';
+import {FormularioProducto} from './componentes/Alta/FormularioProducto/FormularioProducto.jsx';
 import Cart from './componentes/Carrito/Cart.jsx';
 
 
@@ -25,7 +25,7 @@ function App() {
         <Route path='/ProductoNacional/:id' element={<ProductosNacionalesDetalle/>} />
         <Route path='/Gestion' element={<Gestion />} />
         <Route path='/Carrito' element={<Cart />} />
-       
+        {/* <Route path="/productosBD" element={<ProductosBD />} /> */}
       </Route>
     </Routes>
   );
