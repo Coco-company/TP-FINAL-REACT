@@ -29,7 +29,7 @@ const ItemDetalle = () => {
     }, [id]);
 
     if (!producto) {
-        return <h2>Cargndo detalle del producto...</h2>;
+        return <h2>Cargando detalle del producto...</h2>;
     }
 
     if (!producto.id) {

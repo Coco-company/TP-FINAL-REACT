@@ -1,43 +1,47 @@
-import {useState, useEffect } from 'react';
-import {useParams} from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import styles from "./ProductoDetalle.module.css";
 import { Link } from 'react-router-dom';
+import {  doc, getDoc , query, collection, where, getDocs } from "firebase/firestore";
+import { db } from '../../../firebase/config';
 
 const ProductoDetalle = () => {
-    alert("paso");
-    const {id} = useParams();
+    const { id } = useParams();
     const [producto, setProducto] = useState(null);
 
     useEffect(() => {
-        fetch('/data/productos.json')
-            .then(response => response.json())
-            .then(data => {
-                const ProductoEncontrado = data.find(p => p.id === parseInt(id));
-                setProducto(ProductoEncontrado);
-            })
-            .catch(error => console.error("Error al cargar el producto:", error));
+        if (id) {
+            //console.log("ID: "+id);
+            // Creamos la referencia al documento
+            const docRef = doc(db, "productos nacionales", id);
+            getDoc(docRef)
+                .then((resp) => {
+                    if (resp.exists()) { // Verificamos si el documento existe
+                        setProducto({ ...resp.data(), id: resp.id });
+                    } else {
+                        console.log("No se encontró el producto");
+                    }
+                })
+                .catch(error => console.log("Coso",error));
+        }
     }, [id]);
-
-
-    if(!producto){
-        return <h2>Cargndo detalle del producto...</h2>;
-    }
-
-    if(!producto.id){
-        return <h2>Producto no encontrado</h2>;
-    }
 
     return (
         <div className={styles.divProd}>
-            <Link to={"/Productos"} style={{ textDecoration: 'none', color: 'black' }}>
-                <h2>{producto.nombre}</h2>
-                <img src={producto.imagen} alt={producto.nombre} style={{ maxWidth: '400px'}} />
-                <div className={styles.textoPie}>
-                    <h3>${producto.precio}</h3>
-                    <p>{producto.descripcion}</p>
-                </div>
-            </Link>
+            { producto ? ( // lo retiene hasta que se "lea" el contenido de "producto"
+                <>
+                    <h2>{producto.nombre}</h2>
+                    <img src={producto.imagen} alt={producto.nombre} style={{ maxWidth: '400px'}} />
+                    <div className={styles.textoPie}>
+                        <h3>${producto.precio}</h3>
+                        <p>{producto.descripcion}</p>
+                        <Link to={"/Productos"} style={{ textDecoration: 'none', color: 'black', fontWeight: '700',}}><p>Volver</p></Link> 
+                    </div>
+                </> 
+                ) : ( <p>Cargando producto...</p> )
+            }
         </div>
+
     );
 };
 

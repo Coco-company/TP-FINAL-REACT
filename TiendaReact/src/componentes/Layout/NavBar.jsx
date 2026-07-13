@@ -13,7 +13,6 @@ export const NavBar = () => {
             <ul className={ul}>
                 <li className={li}><Link to="/">Home</Link></li>
                 <li className={li}><Link to="/Productos">Productos</Link></li>
-                <li className={li}><Link to="/ProductosNacionales">Productos Nacionales</Link></li>
                 <li className={li}><Link to="/Gestion">Gestión de Productos</Link></li>
                 <li className={li}><Link to="/Carrito">Carrito {totalItems > 0 && <div><span>{totalItems}</span></div>}</Link></li>
             </ul>

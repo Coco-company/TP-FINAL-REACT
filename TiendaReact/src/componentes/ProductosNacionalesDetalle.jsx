@@ -10,6 +10,7 @@ const ProductosNacionalesDetalle = () => {
     const {id} = useParams(); //Tomamos el parámetro id
     const [producto, setItem] = useState(null);
 
+
     useEffect(() => {
         if (id) {
             //console.log("ID: "+id);

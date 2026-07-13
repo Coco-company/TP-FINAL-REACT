@@ -21,6 +21,9 @@ const ProductosNacionales = () => {
     
     return (
         <div>
+
+
+
             <h1>Productos Nacionales</h1>
             <div className="lista-productos">
                 {/* 5. Mapeamos el estado `productos` para renderizar cada uno */}
@@ -42,6 +45,9 @@ const ProductosNacionales = () => {
                    
                 ))}
             </div>
+
+
+            
         </div>
     );
 };

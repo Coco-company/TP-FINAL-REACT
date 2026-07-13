@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import Layout from "./componentes/Layout/Layout.jsx";
 import Home from './componentes/Home/Home.jsx';
 import Gestion from './componentes/Gestion/Gestion.jsx';
-import ItemListContainer from './componentes/Productos/ItemListContainer/ItemListContainer.jsx';
+import ItemListContainer from './componentes/Productos/ItemListContainerDB/ItemListContainer.jsx';
 import ProductosNacionales from './componentes/ProductosNacionales.jsx';
 import ProductosNacionalesDetalle from './componentes/ProductosNacionalesDetalle.jsx';
 import ProductoDetalle from './componentes/Productos/ProductoDetalle/ProductoDetalle.jsx';
@@ -21,8 +21,6 @@ function App() {
         <Route path='/' element={<Home/>} />
         <Route path='/Productos' element={<ItemListContainer Mensaje={"Nuestros productos"} />} />
         <Route path='/Producto/:id' element={<ProductoDetalle />} />
-        <Route path='/ProductosNacionales' element={<ProductosNacionales/>} />
-        <Route path='/ProductoNacional/:id' element={<ProductosNacionalesDetalle/>} />
         <Route path='/Gestion' element={<Gestion />} />
         <Route path='/Carrito' element={<Cart />} />
         {/* <Route path="/productosBD" element={<ProductosBD />} /> */}
