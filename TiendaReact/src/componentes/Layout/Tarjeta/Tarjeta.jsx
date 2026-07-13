@@ -7,14 +7,15 @@ import { Link } from 'react-router-dom';
 function Tarjeta ({id, nombre, cargo, quote, imagenUrl}){
    
     return (
-        <dir className={styles.tarjeta}>
-            
+
+        <div className={styles.tarjeta}>
+
             <img src={imagenUrl} alt={nombre} className={styles.mascara}></img>
             <h2>{nombre}</h2>
             <h3>{cargo}</h3>
             <p><i>"{quote}"</i></p>
 
-        </dir>
+        </div>
     )
 }
 
