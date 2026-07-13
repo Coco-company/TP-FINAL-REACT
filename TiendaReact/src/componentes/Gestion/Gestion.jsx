@@ -11,10 +11,10 @@ const Gestion = () => {
     const estadoInicialForm = {
         id: "",
         nombre: "",
-        categoria: "",
+        oferta: false,
         precio: 0,
         stock: 0,
-        detalle: "",
+        descripcion: "",
         destacado: false,
         imagen:""
     };
@@ -23,7 +23,19 @@ const Gestion = () => {
 
     const [imagenFile, setImagenFile] = useState(null);
 
-    const [loading, setLoading] = useState(false);
+    //? const [loading, setLoading] = useState(false);
+
+    const [productoAEditar, setProductoAEditar] = useState(null);
+
+    // Editar producto individual
+    const manejarEditar = (producto) => {
+        console.log("Entro el edit", producto);
+        console.log("PRE setProductoAEditar");
+        setProductoAEditar(producto);
+        console.log("PRE setDatosForm");
+        setDatosForm(producto);    
+
+    };
 
     const manejarCambio = (evento) => {
         // TOMO LOS DATOS DEL EVENTO LOS GUARDO Y ACTUALIZO EL OBJ datosForm
@@ -43,14 +55,16 @@ const Gestion = () => {
     const manejarEnvio = async (evento) => {
         evento.preventDefault(); //* EVITAMOS LA RECARGA *//
 
-        //! VER QUE PASA ACA QUE NO SE CREA imagenFile
+        console.log("Enviar al form", evento);
+
+
         if (!imagenFile) { //Chequear si hay imagen
             alert("por favor selecciona una imagen para el producto");
             return;
         }
 
         // Agregamos contador
-        setLoading(true);
+    //?    setLoading(true);
         console.log("Loading...");
 
         //* SUBIR IMAGEN A IMGBB
@@ -100,7 +114,7 @@ const Gestion = () => {
         }
 
         // finalmente desactivamos loading
-        finally {setLoading(false)};
+    //?    finally {setLoading(false)};
 
         // Vaciamos el formulario
         setDatosForm(estadoInicialForm);
@@ -142,7 +156,7 @@ const Gestion = () => {
                 manejarCambio={manejarCambio} 
                 manejarEnvio={manejarEnvio} 
                 manejarCambioImagen={manejarCambioImagen} 
-                loading={loading}
+//?                loading={loading}
             />
             <hr />
             <h3>Lista de Productos</h3>
@@ -150,8 +164,8 @@ const Gestion = () => {
                 {productos.map((prod) => (
                     <li key={prod.id}>
                         {prod.nombre} ${prod.precio}
-                        <button onClick={() => handleDelete(prod.id)} style={{ marginLeft: '10px' }}>
-		                    Editar poner logica
+                        <button onClick={() => manejarEditar(prod)} style={{ marginLeft: '10px' }}>
+		                    Editar
 		                </button>
                         <button onClick={() => handleDelete(prod.id)} style={{ marginLeft: '10px' }}>
 		                    Eliminar

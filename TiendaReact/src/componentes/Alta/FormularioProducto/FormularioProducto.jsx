@@ -24,7 +24,7 @@ export function FormularioProducto({datosForm, manejarCambio, manejarEnvio, mane
                     <input type="file" placeholder="https://..." name="imagen" value={datosForm.imagen} onChange={manejarCambioImagen} />
 
                     <label>Destacado </label>
-                    <input type="checkbox" placeholder="Destacado" name="destacado" checked = {datosForm.destacado} onChange={manejarCambio} />
+                    <input type="checkbox" placeholder="oferta" name="oferta" checked = {datosForm.oferta} onChange={manejarCambio} />
                 </div>
                 
                 <button type="submit">Guardar Producto</button>
