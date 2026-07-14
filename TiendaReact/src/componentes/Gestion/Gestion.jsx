@@ -9,7 +9,6 @@ import styles from './Gestion.module.css';
 const Gestion = () => {
     const [productos, setProductos] = useState([]);
     const estadoInicialForm = {
-        
         id: "",
         nombre: "",
         oferta: false,
@@ -23,8 +22,10 @@ const Gestion = () => {
     // ESTADOS //
     const [datosForm, setDatosForm] = useState(estadoInicialForm);
     const [imagenFile, setImagenFile] = useState(null);
+    const [imagenInicial, setImagenInicial] = useState(null);
     const [loading, setLoading] = useState(false);
     const [productoAEditar, setProductoAEditar] = useState(null);
+
 
     const [campoError, setCampoError] = useState("");      //CAMPO ERROR EN EL FORMULARIO
 
@@ -37,8 +38,10 @@ const Gestion = () => {
     // Editar producto individual
     const manejarEditar = (producto) => {
         
+        setImagenInicial(producto.imagen);
+
         console.log("Entro el edit", producto); //!ok
-        //delete producto.imagen; 
+        //delete producto.imagen;
         producto.imagen = "";
         
         setProductoAEditar(producto);       //? Sin fallas Pero "productoAEditar" no carga, deberia ser promesa?
@@ -56,49 +59,47 @@ const Gestion = () => {
         });
     };
 
-    const manejarCambioImagen = (evento) => {
+    const manejarCambioImagen = (evento) => {  
         console.log(evento.target.files[0]);
         setImagenFile(evento.target.files[0]);
     };
 
     // crear un producto en Firebase [CREATE & EDIT]
     const manejarEnvio = async (evento) => {    //ACCION DISPARADA POR FORM SUBMIT
+
         evento.preventDefault(); //* EVITAMOS LA RECARGA *//
         let urlImagen = datosForm.imagen; //Guardamos imagen actual
         
-        console.log("Enviar al form", evento);
+        console.log("productoAEditar: ", productoAEditar);          //!---------------------------------------------------1
+        console.log("Enviar al form", evento);                      //!---------------------------------------------------2
 
-        if (!imagenFile && !productoAEditar) {
+        if (!imagenFile && !productoAEditar) {      // Si no tengo imagen ni producto a editar, pido imagen
             console.log("Por favor, seleccione una imagen");
             setCampoError("Por favor, seleccione una imagen");
-            setTimeout(() => {setCampoError("");},4000);
+            setTimeout(() => {setCampoError("");},4500);
            // alert("Por favor, selecciona una imagen.");
             return;
         }
 
         setLoading(true);
-        console.log("Loading...");
+        console.log("Loading...");                                  //!---------------------------------------------------3
         
         //* SUBIR IMAGEN A IMGBB
         const apiKey = 'b6301cee8b325572aea89f024a152ef7'; 
         
-        console.log("imagenFile: ",imagenFile);
+        console.log("imagenFile: ",imagenFile);                     //!---------------------------------------------------4
 
         try {
+
+            let productoCompleto = {};
+
             if (imagenFile) {        
-                //* OBJETO FormData PARA ENVIAR ARCHIVOS Y DATOS DE FORMULARIO 
+                //* SUBIDA DE IMAGEN A IMGBB *//
                 const formData = new FormData();
                 formData.append('image', imagenFile);
-
                 console.log("subiendo imagen a Imgbb...");
-
-                const respuestaImgbb = await fetch(`https://api.imgbb.com/1/upload?key=${apiKey}`, {
-                    method: 'POST',
-                    body: formData
-                });
-
+                const respuestaImgbb = await fetch(`https://api.imgbb.com/1/upload?key=${apiKey}`, { method: 'POST', body: formData });
                 const datosImgbb = await respuestaImgbb.json();
-
                 if (datosImgbb.success) {
                     console.log("Imagen subida con exito. URL:", datosImgbb.data.url);
                     urlImagen = datosImgbb.data.url; //De lograr subirse, La URL se asigna a la variable urlImagen
@@ -107,23 +108,30 @@ const Gestion = () => {
                 }
 
                 //* UNIMOS LA url DE LA IMAGEN A LOS OTROS DATOS DEL form
-                const productoCompleto = { ...datosForm, imagen: urlImagen };
+              
+                
 
-                console.log('Enviando producto a Firebase:', productoCompleto);
-                
-                // Obtenemos la instancia de la base de datos
-                
                 // Apuntamos a la colección "productos" (si no existe se crea)
                 if (productoAEditar) {
-                    const docRef = doc(db, "productos nacionales", productoAEditar.id); //?idFirestore
+                    console.log('Enviando producto a Firebase con nueva imagen:', productoCompleto);
+                    productoCompleto = { ...datosForm, imagen: urlImagen };
+                    console.log("productoAEditar con imageFile: ", productoAEditar); 
+                    const docRef = doc(db, "productos nacionales", productoAEditar.idFirestore);
                     await updateDoc(docRef, productoCompleto);
                     alert("Producto actualizado correctamente");
 
-                } else {
+                } else {    // Si no edicion simplemente se sube
                     const productosCollection = collection(db, "productos nacionales");
                     await addDoc(productosCollection, productoCompleto);
                     alert("Producto guardado correctamente");
                 }
+            }else if(productoAEditar){
+                    console.log('Enviando producto a Firebase con imagen anterior:', productoCompleto);
+                    productoCompleto = { ...datosForm, imagen: imagenInicial };
+                    console.log("productoAEditar sin imageFile: ", productoAEditar); 
+                    const docRef = doc(db, "productos nacionales", productoAEditar.idFirestore);
+                    await updateDoc(docRef, productoCompleto);
+                    alert("Producto actualizado correctamente");
             }
 
         } catch (error) {
@@ -144,8 +152,9 @@ const Gestion = () => {
     const cargarProductos = async () => {
         const productosRef = collection(db, "productos nacionales");
         const resp = await getDocs(productosRef);
+        
         setProductos(
-            resp.docs.map((doc) => ({ ...doc.data(), id: doc.id }))  //? ,idFirestore:
+            resp.docs.map((doc) => ({ ...doc.data(), idFirestore: doc.id }))
         );
     };
 
