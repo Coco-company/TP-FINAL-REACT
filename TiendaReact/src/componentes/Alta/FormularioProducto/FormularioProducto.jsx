@@ -1,13 +1,19 @@
 import React from 'react';
 import styles from './FormularioProducto.module.css';
 
-export function FormularioProducto({datosForm, manejarCambio, manejarEnvio, manejarCambioImagen}){
+export function FormularioProducto({ datosForm, manejarCambio, manejarEnvio, manejarCambioImagen, loading, modoEdicion, campoError, resetForm}){
 
     return (
-        <div className={styles.divProductos}>
-            <form className={styles.form} onSubmit={manejarEnvio} >
-                <h3 className={styles.h3}>Alta de Producto</h3>
-                <div>
+        <div>
+            <h1>Gestión de Productos</h1>
+            <form className={styles.form} onSubmit={manejarEnvio} onReset={resetForm} >
+                <h3 className={styles.h3}>
+                    {modoEdicion ? "Editar Producto" : "Alta de Producto"}
+                </h3>
+                <div className={styles.divProductos}>
+                    <label>id (SKU) </label>
+                    <input type="text" placeholder="" name="id" value={datosForm.id} onChange={manejarCambio} />
+
                     <label>Producto </label>
                     <input type="text" placeholder="" name="nombre" value={datosForm.nombre} onChange={manejarCambio} />
                     
@@ -26,8 +32,13 @@ export function FormularioProducto({datosForm, manejarCambio, manejarEnvio, mane
                     <label>Destacado </label>
                     <input type="checkbox" placeholder="oferta" name="oferta" checked = {datosForm.oferta} onChange={manejarCambio} />
                 </div>
-                
-                <button type="submit">Guardar Producto</button>
+                <div className={styles.errorField}>{campoError}</div>
+                <button type="submit">
+                    {loading ? "Procesando..." : modoEdicion ? "Actualizar Producto" : "Guardar Producto"}
+                </button>
+                <button type="reset">
+                    {loading ? "Procesando..." : modoEdicion ? "Cancelar Actualización" : "Reset"}
+                </button>
             </form>
         </div>
     )
