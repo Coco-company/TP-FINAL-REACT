@@ -11,6 +11,7 @@ export function FormularioProducto({ datosForm, manejarCambio, manejarEnvio, man
                     {modoEdicion ? "Editar Producto" : "Alta de Producto"}
                 </h3>
                 <div className={styles.divProductos}>
+
                     <label>id (SKU) </label>
                     <input type="text" placeholder="" name="id" value={datosForm.id} onChange={manejarCambio} />
 
@@ -32,7 +33,7 @@ export function FormularioProducto({ datosForm, manejarCambio, manejarEnvio, man
                     <label>Destacado </label>
                     <input type="checkbox" placeholder="oferta" name="oferta" checked = {datosForm.oferta} onChange={manejarCambio} />
                 </div>
-                <div className={styles.errorField}>{campoError}</div>
+                <div className={styles.errorField} style={{ color: campoError[0]}}>{campoError[1]}</div>
                 <button type="submit">
                     {loading ? "Procesando..." : modoEdicion ? "Actualizar Producto" : "Guardar Producto"}
                 </button>

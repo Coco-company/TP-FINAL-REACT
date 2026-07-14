@@ -25,9 +25,13 @@ const Gestion = () => {
     const [imagenInicial, setImagenInicial] = useState(null);
     const [loading, setLoading] = useState(false);
     const [productoAEditar, setProductoAEditar] = useState(null);
+    const [campoError, setCampoError] = useState(["red",""]);      //CAMPO ERROR EN EL FORMULARIO
 
+    const avisosUsuario = (color,texto) => {
+        setCampoError([color,texto]);
+        setTimeout(() => {setCampoError("");},4500);
+    }   
 
-    const [campoError, setCampoError] = useState("");      //CAMPO ERROR EN EL FORMULARIO
 
     const resetForm = () => {
         setDatosForm(estadoInicialForm);
@@ -75,8 +79,11 @@ const Gestion = () => {
 
         if (!imagenFile && !productoAEditar) {      // Si no tengo imagen ni producto a editar, pido imagen
             console.log("Por favor, seleccione una imagen");
-            setCampoError("Por favor, seleccione una imagen");
-            setTimeout(() => {setCampoError("");},4500);
+            
+            avisosUsuario("red","Por favor, seleccione una imagen");
+            
+        //    setCampoError("Por favor, seleccione una imagen");
+        //    setTimeout(() => {setCampoError("");},4500);
            // alert("Por favor, selecciona una imagen.");
             return;
         }
@@ -90,6 +97,16 @@ const Gestion = () => {
         console.log("imagenFile: ",imagenFile);                     //!---------------------------------------------------4
 
         try {
+
+            const Actualizar = (imagenASubir,texto) => { 
+                console.log('Enviando producto a Firebase con imagen',texto,':', productoCompleto);
+                productoCompleto = { ...datosForm, imagen: imagenASubir };
+                console.log("productoAEditar con imageFile: ", productoAEditar); 
+                const docRef = doc(db, "productos nacionales", productoAEditar.idFirestore);
+                updateDoc(docRef, productoCompleto);
+                avisosUsuario("green","Producto actualizado correctamente");
+                
+            }
 
             let productoCompleto = {};
 
@@ -113,30 +130,21 @@ const Gestion = () => {
 
                 // Apuntamos a la colección "productos" (si no existe se crea)
                 if (productoAEditar) {
-                    console.log('Enviando producto a Firebase con nueva imagen:', productoCompleto);
-                    productoCompleto = { ...datosForm, imagen: urlImagen };
-                    console.log("productoAEditar con imageFile: ", productoAEditar); 
-                    const docRef = doc(db, "productos nacionales", productoAEditar.idFirestore);
-                    await updateDoc(docRef, productoCompleto);
-                    alert("Producto actualizado correctamente");
-
+                    await Actualizar(urlImagen,"nueva");
                 } else {    // Si no edicion simplemente se sube
                     const productosCollection = collection(db, "productos nacionales");
                     await addDoc(productosCollection, productoCompleto);
-                    alert("Producto guardado correctamente");
+                    // alert("Producto guardado correctamente");
+                    avisosUsuario("green","Producto guardado correctamente");
                 }
             }else if(productoAEditar){
-                    console.log('Enviando producto a Firebase con imagen anterior:', productoCompleto);
-                    productoCompleto = { ...datosForm, imagen: imagenInicial };
-                    console.log("productoAEditar sin imageFile: ", productoAEditar); 
-                    const docRef = doc(db, "productos nacionales", productoAEditar.idFirestore);
-                    await updateDoc(docRef, productoCompleto);
-                    alert("Producto actualizado correctamente");
+                await Actualizar(imagenInicial,"inicial");
             }
 
         } catch (error) {
             console.log("Error en el proceso de envío:", error);
-            alert("Hubo un error al subir la imagen Por favor intente de nuevo.");
+            avisosUsuario("red","Hubo un error al subir la imagen Por favor intente de nuevo");
+        
         
         } finally {
             setLoading(false); // finalmente desactivamos loading
@@ -171,7 +179,8 @@ const Gestion = () => {
             await deleteDoc(docRef);
             // Actualizamos el estado local para reflejar el cambio en la UI inmediatamente.
             setProductos(productos.filter(prod => prod.id !== id));
-            alert("Producto eliminado.");
+            avisosUsuario("red","Producto eliminado");
+            //alert("Producto eliminado.");
         }
     };
 
