@@ -9,6 +9,7 @@ import styles from './Gestion.module.css';
 const Gestion = () => {
     const [productos, setProductos] = useState([]);
     const estadoInicialForm = {
+        
         id: "",
         nombre: "",
         oferta: false,
@@ -37,7 +38,8 @@ const Gestion = () => {
     const manejarEditar = (producto) => {
         
         console.log("Entro el edit", producto); //!ok
-        delete producto.imagen; 
+        //delete producto.imagen; 
+        producto.imagen = "";
         
         setProductoAEditar(producto);       //? Sin fallas Pero "productoAEditar" no carga, deberia ser promesa?
         //console.log("productoAEditar: ", productoAEditar);
@@ -46,7 +48,7 @@ const Gestion = () => {
 
     // FUNCUIONES ONCHANGE //
     const manejarCambio = (evento) => {
-        // TOMO LOS DATOS DEL EVENTO LOS GUARDO Y ACTUALIZO EL OBJ datosForm
+        // TOMO LOS DATOS DEL EVENTO DE CADA INPUT LOS GUARDO Y ACTUALIZO EL OBJ datosForm
         const { name, value, type, checked } = evento.target;
         setDatosForm({
             ...datosForm,
@@ -60,7 +62,7 @@ const Gestion = () => {
     };
 
     // crear un producto en Firebase [CREATE & EDIT]
-    const manejarEnvio = async (evento) => {
+    const manejarEnvio = async (evento) => {    //ACCION DISPARADA POR FORM SUBMIT
         evento.preventDefault(); //* EVITAMOS LA RECARGA *//
         let urlImagen = datosForm.imagen; //Guardamos imagen actual
         
