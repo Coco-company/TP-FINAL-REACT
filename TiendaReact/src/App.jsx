@@ -9,6 +9,7 @@ import ProductosNacionalesDetalle from './componentes/ProductosNacionalesDetalle
 import ProductoDetalle from './componentes/Productos/ProductoDetalle/ProductoDetalle.jsx';
 import {FormularioProducto} from './componentes/Alta/FormularioProducto/FormularioProducto.jsx';
 import Cart from './componentes/Carrito/Cart.jsx';
+import GestionCupones from "./componentes/GestionCupones/GestionCupones";
 
 
 //*import Carrito from './';
@@ -23,6 +24,7 @@ function App() {
         <Route path='/Producto/:id' element={<ProductoDetalle />} />
         <Route path='/Gestion' element={<Gestion />} />
         <Route path='/Carrito' element={<Cart />} />
+        <Route path="/admin/cupones" element={<GestionCupones />} />
         {/* <Route path="/productosBD" element={<ProductosBD />} /> */}
       </Route>
     </Routes>
