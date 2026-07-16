@@ -27,11 +27,11 @@ const Gestion = () => {
     const [productoAEditar, setProductoAEditar] = useState(null);
     const [campoError, setCampoError] = useState(["red",""]);      //CAMPO ERROR EN EL FORMULARIO
 
+    // ERROR //
     const avisosUsuario = (color,texto) => {
         setCampoError([color,texto]);
         setTimeout(() => {setCampoError("");},4500);
     }   
-
 
     const resetForm = () => {
         setDatosForm(estadoInicialForm);
@@ -44,7 +44,7 @@ const Gestion = () => {
         
         setImagenInicial(producto.imagen);
 
-        console.log("Entro el edit", producto); //!ok
+        console.log("Entro el edit", producto); 
         //delete producto.imagen;
         producto.imagen = "";
         
@@ -74,30 +74,24 @@ const Gestion = () => {
         evento.preventDefault(); //* EVITAMOS LA RECARGA *//
         let urlImagen = datosForm.imagen; //Guardamos imagen actual
         
-        console.log("productoAEditar: ", productoAEditar);          //!---------------------------------------------------1
-        console.log("Enviar al form", evento);                      //!---------------------------------------------------2
+        console.log("productoAEditar: ", productoAEditar);          
+        console.log("Enviar al form", evento);                      
 
         if (!imagenFile && !productoAEditar) {      // Si no tengo imagen ni producto a editar, pido imagen
             console.log("Por favor, seleccione una imagen");
-            
             avisosUsuario("red","Por favor, seleccione una imagen");
-            
-        //    setCampoError("Por favor, seleccione una imagen");
-        //    setTimeout(() => {setCampoError("");},4500);
-           // alert("Por favor, selecciona una imagen.");
             return;
         }
 
         setLoading(true);
-        console.log("Loading...");                                  //!---------------------------------------------------3
+        console.log("Loading...");                                  
         
         //* SUBIR IMAGEN A IMGBB
         const apiKey = 'b6301cee8b325572aea89f024a152ef7'; 
         
-        console.log("imagenFile: ",imagenFile);                     //!---------------------------------------------------4
+        console.log("imagenFile: ",imagenFile);                     
 
         try {
-
             const Actualizar = (imagenASubir,texto) => { 
                 console.log('Enviando producto a Firebase con imagen',texto,':', productoCompleto);
                 productoCompleto = { ...datosForm, imagen: imagenASubir };
@@ -105,7 +99,6 @@ const Gestion = () => {
                 const docRef = doc(db, "productos nacionales", productoAEditar.idFirestore);
                 updateDoc(docRef, productoCompleto);
                 avisosUsuario("green","Producto actualizado correctamente");
-                
             }
 
             let productoCompleto = {};

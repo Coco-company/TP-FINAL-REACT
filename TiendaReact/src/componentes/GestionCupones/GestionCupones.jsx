@@ -4,14 +4,13 @@ import { collection, addDoc, getDocs, deleteDoc, doc } from "firebase/firestore"
 import styles from './GestionCupones.module.css';
 
 const GestionCupones = () => {
-
+    // ESTADOS //
     const [codigo, setCodigo] = useState("");
     const [descuento, setDescuento] = useState("");
     const [cupones, setCupones] = useState([]);
 
     // Cargar cupones
     const obtenerCupones = async () => {
-
         try {
             const respuesta = await getDocs(collection(db, "cupones"));
             const lista = respuesta.docs.map((doc) => ({
@@ -27,11 +26,13 @@ const GestionCupones = () => {
 
     };
 
-    useEffect(() => { obtenerCupones(); }, []);
+     // Obtecion de cupones
+   useEffect(() => {
+        obtenerCupones();
+    }, [cupones]);
 
     // Crear cupón
     const crearCupon = async (e) => {
-
         e.preventDefault();
         if (!codigo || !descuento) {
             alert("Complete todos los campos");
@@ -86,7 +87,6 @@ const GestionCupones = () => {
                     <div className={styles.divItem} key={cupon.id}>
                         <p> <strong>Código:</strong> {cupon.codigo} </p>
                         <p> <strong>Descuento:</strong> {cupon.descuento}% </p>
-
                         <button onClick={() => eliminarCupon(cupon.id)}>
                             Eliminar
                         </button>

@@ -9,8 +9,10 @@ import ProductosNacionalesDetalle from './componentes/ProductosNacionalesDetalle
 import ProductoDetalle from './componentes/Productos/ProductoDetalle/ProductoDetalle.jsx';
 import {FormularioProducto} from './componentes/Alta/FormularioProducto/FormularioProducto.jsx';
 import Cart from './componentes/Carrito/Cart.jsx';
+import Login from './componentes/Login/Login';
 import GestionCupones from "./componentes/GestionCupones/GestionCupones";
-
+import ProtectedRoute from './componentes/ProtectedRoute/ProtectedRoute';
+import Registro from './componentes/Login/Registro.jsx';
 
 //*import Carrito from './';
 
@@ -22,9 +24,19 @@ function App() {
         <Route path='/' element={<Home/>} />
         <Route path='/Productos' element={<ItemListContainer Mensaje={"Nuestros productos"} />} />
         <Route path='/Producto/:id' element={<ProductoDetalle />} />
-        <Route path='/Gestion' element={<Gestion />} />
+        <Route path='/Gestion' element={
+          
+            <Gestion/>
+          
+          } />
+        <Route path="/admin/cupones" element={
+          
+            <GestionCupones/>
+          
+          } />
         <Route path='/Carrito' element={<Cart />} />
-        <Route path="/admin/cupones" element={<GestionCupones />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/registro' element={<Registro />} />
         {/* <Route path="/productosBD" element={<ProductosBD />} /> */}
       </Route>
     </Routes>
