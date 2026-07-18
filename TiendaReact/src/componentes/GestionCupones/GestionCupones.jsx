@@ -15,29 +15,30 @@ const GestionCupones = () => {
         setTimeout(() => {setCampoError("");},4500);
     }   
 
-    // Cargar cupones
-    const obtenerCupones = async () => {
-        try {
-            const respuesta = await getDocs(collection(db, "cupones"));
-            const lista = respuesta.docs.map((doc) => ({
-                id: doc.id,
-                ...doc.data()
-            })
-            );
-
-            setCupones(lista);
-        } catch (error) {
-            console.error("Error al obtener los cupones:", error);
-            avisosUsuario("red","Ocurrió un error al cargar los cupones");
-        }
-    };
-
-
     // Obtecion de cupones
     useEffect(() => {
-           obtenerCupones();
-    }, [cupones]);
+         //  obtenerCupones();
+        const respCupones = collection(db, "cupones");
+        getDocs(respCupones)
+            .then((resp) => {
+                if(resp){
+                    const lista = resp.docs.map((doc) => (
+                        { id: doc.id, ...doc.data() }
+                    ))
+                    setCupones(lista);
+                }else {
+                    console.log("No se encontraron cupones");
+                }
+            })
+            .catch(
+                (error) => {
+                    console.log("Error al obtener los cupones:", error);
+                    avisosUsuario("red","Ocurrió un error al cargar los cupones");
+                }
+            )
+        }, [cupones]);
 
+    
     // Crear cupón
     const crearCupon = async (e) => {
         e.preventDefault();
@@ -62,7 +63,7 @@ const GestionCupones = () => {
 
             setCodigo("");
             setDescuento("");
-            await obtenerCupones();
+    
 
         } catch (error) {
             console.error(error);
@@ -75,7 +76,7 @@ const GestionCupones = () => {
     const eliminarCupon = async (id) => {
         try {
             await deleteDoc(doc(db, "cupones", id));
-            await obtenerCupones();
+         
         } catch (error) {
             console.error(error);
             avisosUsuario("red","Error al eliminar el cupón");
