@@ -18,7 +18,7 @@ const Cart = () => {
   }
     
   const Comprado = () => {
-    alert("COMPRASTE!");
+    alert("COMPRASTE!, Perdón por el alert!");
     clearCart();
   }
 

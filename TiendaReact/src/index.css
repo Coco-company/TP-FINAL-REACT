@@ -76,6 +76,7 @@
 
 body {
   margin: 0;
+  min-width: 620px;
 }
 
 #root {

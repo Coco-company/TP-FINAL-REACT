@@ -9,8 +9,20 @@
     color: var(--textos);
 }
 
+.h2 {
+    padding: 0.5em;
+    margin: 1em 2.5em 0.3em;
+    border: 0 solid;
+    border-radius: 6px;
+    font-family: var(--heroText);
+    background-color: var(--color2);
+    font-size: 2.5rem;
+    font-kerning: 5px;
+    color: var(--textos);
+}
+
 .h3 {
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
     color: var(--textos);
     font-size: 2em;
     border: 0;
@@ -71,4 +83,18 @@
     justify-content: center;
     align-content: end;
 
+}
+
+.divProductos label {
+    text-align: left;
+}
+
+.divProductos .form button {
+    background-color: var(--color2);
+    border: 0 solid;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 5px 10px;
+    padding: 5px 2rem;
 }

@@ -34,6 +34,11 @@ const AuthProvider = ({ children }) => {
         // onAuthStateChanged es el observador de Firebase
         const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
             if (currentUser) {
+                
+                //Tomando el correo electr creo un "name" y 
+                const nameString = String(currentUser.email).split("@");
+                currentUser.name = nameString[0].charAt(0).toUpperCase() + nameString[0].slice(1);;
+
                 // Si hay un usuario, buscamos su rol en Firestore.
                 const userDocRef = doc(db, "usuarios", currentUser.uid);
                 const userDocSnap = await getDoc(userDocRef);
@@ -41,6 +46,7 @@ const AuthProvider = ({ children }) => {
                     'admin') {
                     // Si el documento existe y tiene rol de admin, lo asignamos.
                     setUser({ ...currentUser, rol: 'admin' });
+                    {console.log("loading: ",loading)}
                 } else {
                     // Para cualquier otro caso, es un usuario regular.
                     setUser({ ...currentUser, rol: 'user' });
@@ -50,7 +56,10 @@ const AuthProvider = ({ children }) => {
             }
             setLoading(false);
         });
+        
         // Limpiamos el observador al desmontar
+
+        //Obtengo un nombre de la primer parte del email
         return () => unsubscribe();
     }, [auth, db]); // Agregamos 'auth' como dependencia
 

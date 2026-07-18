@@ -1,15 +1,9 @@
-.h3 {
-    padding:2px;
-    margin: 0.3em 0;
-    background-color: var(--color2);
-    border: 0 solid;
-    border-radius: 6px;
-}
 
 .divItem {
-    min-width: 250px;
+    min-width: 350px;
     padding: 5px;
-    margin: 1em;
+    margin: 1em auto;
+    width: 50%;
     border-radius: 16px;
     text-align: center;
     background-color: var(--color3);
@@ -76,9 +70,30 @@
     background-color: var(--fondos);
 }
 
+.form {
+    margin: 2em 0;    
+}
+
+.form input, .form button {
+    font-size: 1.2rem;
+    margin: 0 0.1em;
+}
+
+.form button {
+    color: var(--textos);
+    background-color: var(--color3);
+    border: 0 solid;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 5px 10px;
+    padding: 5px 2rem;
+}
+
+
 .h2 {
     padding: 0.5em;
-    margin: 0.3em 2.5em;
+    margin: 0.5em 2.5em 0.75em;
     border: 0 solid;
     border-radius: 6px;
     font-family: var(--heroText);
@@ -88,17 +103,18 @@
     color: var(--textos);
 }
 
-.divItemCarroList h3 {
+.h3 {
     font-size: 1.25rem;
     color: var(--textos);
     padding:0.25rem;
-    margin: 0;
+    margin: 0 1em;
     background-color: var(--color2);
     border: 0 solid;
     border-radius: 6px;
     display: block;
     height: auto;
 }
+
 
 .divItemCarroList h4 {
     font-size: 1.25rem;
@@ -123,4 +139,8 @@
     display:inline;
     height: auto;
     width: 14rem;
+}
+
+.form input {
+    size: 5rem; 
 }

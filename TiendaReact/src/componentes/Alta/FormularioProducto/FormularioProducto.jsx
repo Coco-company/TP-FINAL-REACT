@@ -5,7 +5,7 @@ export function FormularioProducto({ datosForm, manejarCambio, manejarEnvio, man
 
     return (
         <div>
-            <h1>Gestión de Productos</h1>
+            <h2 className={styles.h2} >Gestión de Productos</h2>
             <form className={styles.form} onSubmit={manejarEnvio} onReset={resetForm} >
                 <h3 className={styles.h3}>
                     {modoEdicion ? "Editar Producto" : "Alta de Producto"}

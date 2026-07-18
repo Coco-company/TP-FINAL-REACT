@@ -19,9 +19,11 @@ const ProtectedRoute = ({ children, rolesPermitidos }) => {
     if (rolesPermitidos && !rolesPermitidos.includes(user.rol)){
         // Si hay un usuario, renderizamos el componente hijo que está siendo protegido.
         return <Navigate to="/" replace />;
-        //return <> {children} </>;
+        //
     }
-    return <Outlet />;
+
+    return <> {children} </>;
+    //*{return <Outlet />;}*/
 }
 
 export default ProtectedRoute;

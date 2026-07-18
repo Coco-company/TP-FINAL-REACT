@@ -73,10 +73,7 @@ const Gestion = () => {
 
         evento.preventDefault(); //* EVITAMOS LA RECARGA *//
         let urlImagen = datosForm.imagen; //Guardamos imagen actual
-        
-        console.log("productoAEditar: ", productoAEditar);          
-        console.log("Enviar al form", evento);                      
-
+                 
         if (!imagenFile && !productoAEditar) {      // Si no tengo imagen ni producto a editar, pido imagen
             console.log("Por favor, seleccione una imagen");
             avisosUsuario("red","Por favor, seleccione una imagen");
@@ -92,17 +89,25 @@ const Gestion = () => {
         console.log("imagenFile: ",imagenFile);                     
 
         try {
-            const Actualizar = (imagenASubir,texto) => { 
-                console.log('Enviando producto a Firebase con imagen',texto,':', productoCompleto);
-                productoCompleto = { ...datosForm, imagen: imagenASubir };
+
+            const Crear = (imagenASubir) => { 
+                console.log("Entro en crear:"); 
+                let productoCompleto = { ...datosForm, imagen: imagenASubir };
+                const productosCollection = collection(db, "productos nacionales");
+                addDoc(productosCollection, productoCompleto);
+                avisosUsuario("green","Producto guardado correctamente");
+            }
+
+            const Actualizar = (imagenASubir) => { 
+                console.log("Entro en actualizar:");
+                //console.log('Enviando producto a Firebase con imagen',texto,':', productoCompleto);
+                let productoCompleto = { ...datosForm, imagen: imagenASubir };
                 console.log("productoAEditar con imageFile: ", productoAEditar); 
                 const docRef = doc(db, "productos nacionales", productoAEditar.idFirestore);
                 updateDoc(docRef, productoCompleto);
                 avisosUsuario("green","Producto actualizado correctamente");
             }
-
-            let productoCompleto = {};
-
+            
             if (imagenFile) {        
                 //* SUBIDA DE IMAGEN A IMGBB *//
                 const formData = new FormData();
@@ -116,22 +121,14 @@ const Gestion = () => {
                 }else{
                     throw new Error('La subida de la imagen a Imgbb falló!');
                 }
-
                 //* UNIMOS LA url DE LA IMAGEN A LOS OTROS DATOS DEL form
-              
-                
-
-                // Apuntamos a la colección "productos" (si no existe se crea)
-                if (productoAEditar) {
-                    await Actualizar(urlImagen,"nueva");
-                } else {    // Si no edicion simplemente se sube
-                    const productosCollection = collection(db, "productos nacionales");
-                    await addDoc(productosCollection, productoCompleto);
-                    // alert("Producto guardado correctamente");
-                    avisosUsuario("green","Producto guardado correctamente");
+                if (productoAEditar) {  // IMAGEN INICIAL
+                    await Actualizar(urlImagen);
+                } else {    // Si no hay edicion simplemente se crea
+                   await Crear(urlImagen);  // CREADO DE PRODUCTO
                 }
-            }else if(productoAEditar){
-                await Actualizar(imagenInicial,"inicial");
+            }else if(productoAEditar){  // IMAGEN INICIAL
+                await Actualizar(imagenInicial);
             }
 
         } catch (error) {

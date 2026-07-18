@@ -8,6 +8,12 @@ const GestionCupones = () => {
     const [codigo, setCodigo] = useState("");
     const [descuento, setDescuento] = useState("");
     const [cupones, setCupones] = useState([]);
+    const [campoError, setCampoError] = useState(["red",""]);  
+    
+    const avisosUsuario = (color,texto) => {
+        setCampoError([color,texto]);
+        setTimeout(() => {setCampoError("");},4500);
+    }   
 
     // Cargar cupones
     const obtenerCupones = async () => {
@@ -21,13 +27,13 @@ const GestionCupones = () => {
             setCupones(lista);
         } catch (error) {
             console.error("Error al obtener los cupones:", error);
-            alert("Ocurrió un error al cargar los cupones.");
+            avisosUsuario("red","Ocurrió un error al cargar los cupones");
+            //alert("Ocurrió un error al cargar los cupones.");
         }
-
     };
 
-     // Obtecion de cupones
-   useEffect(() => {
+    // Obtecion de cupones
+    useEffect(() => {
         obtenerCupones();
     }, [cupones]);
 
@@ -35,13 +41,15 @@ const GestionCupones = () => {
     const crearCupon = async (e) => {
         e.preventDefault();
         if (!codigo || !descuento) {
-            alert("Complete todos los campos");
+            //alert("Complete todos los campos");
+            avisosUsuario("yellow","Complete todos los campos");
             return;
         }
 
         const porcentaje = Number(descuento);
         if (porcentaje < 1 || porcentaje > 100) {
-            alert("El descuento debe estar entre 1 y 100.");
+            //alert("El descuento debe estar entre 1 y 100.");
+            avisosUsuario("red","El descuento debe estar entre 1 y 100");
             return;
         }
 
@@ -57,7 +65,8 @@ const GestionCupones = () => {
 
         } catch (error) {
             console.error(error);
-            alert("Error al crear el cupón.");
+            //alert("Error al crear el cupón.");
+            avisosUsuario("red","Error descuento debe estar entre 1 y 100");
         }
     };
 
@@ -68,17 +77,19 @@ const GestionCupones = () => {
             await obtenerCupones();
         } catch (error) {
             console.error(error);
-            alert("Error al eliminar el cupón.");
+            avisosUsuario("red","Error al eliminar el cupón");
+            //alert("Error al eliminar el cupón.");
         }
     };
 
     return (
         <div className={styles.main}>
             <h2 className={styles.h2}>Administración de Cupones</h2>
-            <form onSubmit={crearCupon}>
+            <form className={styles.form} onSubmit={crearCupon}>
                 <input type="text" placeholder="Código" required value={codigo} onChange={(e) => setCodigo(e.target.value)} />
-                <input type="number" placeholder="Descuento" min="1" max="100" required value={descuento} onChange={(e) => setDescuento(e.target.value)} />
-                <button type="submit"> Crear Cupón </button>
+                <input type="number" placeholder="Desc %" min="1" max="100" required value={descuento} onChange={(e) => setDescuento(e.target.value)} />
+                <button type="submit">Crear Cupón</button>
+                <div className={styles.errorField} style={{ color: campoError[0]}}>{campoError[1]}</div>
             </form>
             
             <h3 className={styles.h3}>Listado de Cupones</h3>
