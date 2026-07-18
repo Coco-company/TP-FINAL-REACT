@@ -84,8 +84,8 @@ const Gestion = () => {
         console.log("Loading...");                                  
         
         //* SUBIR IMAGEN A IMGBB
-        const apiKey = 'b6301cee8b325572aea89f024a152ef7'; 
         
+        const apiKey = import.meta.env.VITE_IMGBB_API_KEY;
         console.log("imagenFile: ",imagenFile);                     
 
         try {

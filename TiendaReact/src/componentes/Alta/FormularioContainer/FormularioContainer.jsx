@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { FormularioProducto } from '../FormularioProducto/FormularioProducto.jsx';
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
 
+
+
 export function FormularioContainer() {
 
     const [datosForm, setDatosForm] = useState({
@@ -43,7 +45,7 @@ export function FormularioContainer() {
         console.log("Loading...");
 
         //* SUBIR IMAGEN A IMGBB
-        const apiKey = 'b6301cee8b325572aea89f024a152ef7';
+        const apiKey = import.meta.env.VITE_IMGBB_API_KEY;
 
         //* OBJETO FormData PARA ENVIAR ARCHIVOS Y DATOS DE FORMULARIO 
         const formData = new FormData();

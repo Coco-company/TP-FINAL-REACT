@@ -3,13 +3,15 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from "firebase/firestore";
 
+const apiKey = import.meta.env.VITE_FIREBASE_API_KEY;
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyCEL5LGEE34HbgueT9QyV5z_widalxH9sI",
+  apiKey: apiKey,
   authDomain: "tienda-talentotech-react.firebaseapp.com",
   projectId: "tienda-talentotech-react",
   storageBucket: "tienda-talentotech-react.firebasestorage.app",
