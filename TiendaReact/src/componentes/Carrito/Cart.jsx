@@ -44,7 +44,7 @@ const Cart = () => {
             <p>Subtotal: ${item.precio * item.quantity}</p>
           </div>
           <button onClick={()=>removeItem(item.id)}> 
-            <img src={"../images/iconoEliminar.svg"} alt={`eliminar ${item.nombre}`} />
+            <img src={"./public/images/iconoEliminar.png"} alt={`eliminar ${item.nombre}`} />
           </button>
         </div>
       ))}
