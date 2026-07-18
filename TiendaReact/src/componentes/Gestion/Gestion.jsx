@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { db } from '../../firebase/config';
 
 import { collection, addDoc, getDocs, deleteDoc, doc, updateDoc } from "firebase/firestore";
@@ -26,6 +26,7 @@ const Gestion = () => {
     const [loading, setLoading] = useState(false);
     const [productoAEditar, setProductoAEditar] = useState(null);
     const [campoError, setCampoError] = useState(["red",""]);      //CAMPO ERROR EN EL FORMULARIO
+
 
     // ERROR //
     const avisosUsuario = (color,texto) => {
@@ -72,7 +73,7 @@ const Gestion = () => {
     const manejarEnvio = async (evento) => {    //ACCION DISPARADA POR FORM SUBMIT
 
         evento.preventDefault(); //* EVITAMOS LA RECARGA *//
-        let urlImagen = datosForm.imagen; //Guardamos imagen actual
+        let urlImagen; //Guardamos imagen actual
                  
         if (!imagenFile && !productoAEditar) {      // Si no tengo imagen ni producto a editar, pido imagen
             console.log("Por favor, seleccione una imagen");
@@ -162,13 +163,14 @@ const Gestion = () => {
     }, []);    // [productos]?
 
     // [DELETE]
-    const handleDelete = async (id) => {
+    const handleDelete = async (productoElim) => {
         const confirmacion = window.confirm("¿Está seguro de que desea eliminar este producto ? ");
         if (confirmacion) {
-            const docRef = doc(db, "productos nacionales", id);
+            const docRef = doc(db, "productos nacionales", productoElim.idFirestore);
             await deleteDoc(docRef);
+
             // Actualizamos el estado local para reflejar el cambio en la UI inmediatamente.
-            setProductos(productos.filter(prod => prod.id !== id));
+            setProductos(productos.filter(prod => prod.id !== productoElim.id)); //Elimino producto de Lista
             avisosUsuario("red","Producto eliminado");
             //alert("Producto eliminado.");
         }
@@ -176,7 +178,6 @@ const Gestion = () => {
 
     return (
         <div className={styles.divProductos}>
-            {/*<FormularioContainer datosForm={estadoInicialForm} />*/}
             <FormularioProducto 
                 datosForm={datosForm} 
                 manejarCambio={manejarCambio} 
@@ -197,7 +198,7 @@ const Gestion = () => {
                         <button onClick={() => manejarEditar(prod)} style={{ marginLeft: '10px' }}>
 		                    Editar
 		                </button>
-                        <button onClick={() => handleDelete(prod.id)} style={{ marginLeft: '10px' }}>
+                        <button onClick={() => handleDelete(prod)} style={{ marginLeft: '10px' }}>
 		                    Eliminar
 		                </button>
                     </li>
