@@ -1,6 +1,6 @@
 import ItemList from '../ItemList/ItemList.jsx';
 import styles from './ItemListContainer.module.css';
-import react, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 function ItemListContainer() {  // Children = Elementos hijos. Llama a los componentes contenidos dentro del elemento HTML
 

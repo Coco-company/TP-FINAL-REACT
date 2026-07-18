@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import styles from "./ProductoDetalle.module.css";
 import { Link } from 'react-router-dom';
-import {  doc, getDoc , query, collection, where, getDocs } from "firebase/firestore";
+import {  doc, getDoc } from "firebase/firestore";
 import { db } from '../../../firebase/config';
 
 const ProductoDetalle = () => {
@@ -41,7 +41,6 @@ const ProductoDetalle = () => {
                 ) : ( <p>Cargando producto...</p> )
             }
         </div>
-
     );
 };
 

@@ -1,4 +1,4 @@
-import { createContext, useState, useContext, useEffect } from 'react';
+import { createContext, useState, useEffect } from 'react';
 import { getAuth, onAuthStateChanged, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { getFirestore,  getDoc, doc } from 'firebase/firestore';
 
@@ -46,7 +46,7 @@ const AuthProvider = ({ children }) => {
                     'admin') {
                     // Si el documento existe y tiene rol de admin, lo asignamos.
                     setUser({ ...currentUser, rol: 'admin' });
-                    {console.log("loading: ",loading)}
+                    
                 } else {
                     // Para cualquier otro caso, es un usuario regular.
                     setUser({ ...currentUser, rol: 'user' });

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 // Importaciones clave de Firebase
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase/config.js';
 import { Link } from 'react-router-dom';
 
@@ -21,14 +21,10 @@ const ProductosNacionales = () => {
     
     return (
         <div>
-
-
-
             <h1>Productos Nacionales</h1>
             <div className="lista-productos">
                 {/* 5. Mapeamos el estado `productos` para renderizar cada uno */}
                 {productos.map(prod => (
-                    
                     <div key={prod.id} >
                         <>
                             <img src={prod.imagen} alt={prod.nombre} style={{width: '100px'}} />
@@ -45,9 +41,6 @@ const ProductosNacionales = () => {
                    
                 ))}
             </div>
-
-
-            
         </div>
     );
 };

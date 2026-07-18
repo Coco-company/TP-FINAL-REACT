@@ -1,11 +1,10 @@
-import React from 'react';
 import { useCart } from '../Carrito/useCart.jsx';
 import { Link } from 'react-router-dom';
 import styles from './Cart.module.css';
 
 const Cart = () => {
   
-  const { cart, clearCart, getCartTotal, isInCart, removeItem } = useCart();
+  const { cart, clearCart, getCartTotal, removeItem } = useCart();
   
 
   if(cart.length === 0){

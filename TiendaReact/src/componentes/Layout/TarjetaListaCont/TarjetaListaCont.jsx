@@ -1,6 +1,6 @@
 import TarjetaLista from '../TarjetaLista/TarjetaLista.jsx';
 import styles from './TarjetaListaCont.module.css';
-import react, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../../firebase/config.js';
 

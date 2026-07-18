@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { nav, ul, li, usuario } from './NavBar.module.css';
 import { useCart } from '../Carrito/useCart.jsx';

@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './FormularioProducto.module.css';
 
 export function FormularioProducto({ datosForm, manejarCambio, manejarEnvio, manejarCambioImagen, loading, modoEdicion, campoError, resetForm}){

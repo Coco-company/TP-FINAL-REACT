@@ -22,19 +22,20 @@ const GestionCupones = () => {
             const lista = respuesta.docs.map((doc) => ({
                 id: doc.id,
                 ...doc.data()
-            }));
+            })
+            );
 
             setCupones(lista);
         } catch (error) {
             console.error("Error al obtener los cupones:", error);
             avisosUsuario("red","Ocurrió un error al cargar los cupones");
-            //alert("Ocurrió un error al cargar los cupones.");
         }
     };
 
+
     // Obtecion de cupones
     useEffect(() => {
-        obtenerCupones();
+           obtenerCupones();
     }, [cupones]);
 
     // Crear cupón

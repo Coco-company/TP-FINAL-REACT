@@ -1,6 +1,6 @@
 import ItemList from '../ItemList/ItemList.jsx';
 import styles from './ItemListContainer.module.css';
-import react, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../../firebase/config.js';

@@ -1,10 +1,6 @@
-import React from "react";
-import {useState} from 'react';
 import styles from './Tarjeta.module.css';
-import { Link } from 'react-router-dom';
 
-
-function Tarjeta ({id, nombre, cargo, quote, imagenUrl}){
+function Tarjeta ({nombre, cargo, quote, imagenUrl}){
    
     return (
 

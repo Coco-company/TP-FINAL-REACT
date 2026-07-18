@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 // Importaciones clave para obtener un solo documento
 import { doc, getDoc } from "firebase/firestore";
